@@ -40,31 +40,10 @@ export const theme = extendTheme({
     '8xl': '6rem'
   },
   colors: {
-    brand: {
-      purple: {
-        200: '#3E49B8',
-        700: '#03072C'
-      },
-      orange: {
-        200: '#FFAC50'
-      },
-      bgColor: {
-        100: 'rgba(250, 238, 213, 0.35)',
-        200: '#EEF8FE',
-        300: '#EC6F2E'
-      }
-    },
-    brandPurple: {
-      500: '#3E49B8',
-      600: '#3E49B8'
-    },
-    brandOrange: {
-      500: '#FFAC50',
-      600: '#FFAC50'
-    },
-    buttonDarkScheme: {
-      500: '#000000',
-      600: '#000000'
+    base: {
+      400: '#9acd3d',
+      500: '#019415',
+      600: '#006837'
     }
   },
   space: {

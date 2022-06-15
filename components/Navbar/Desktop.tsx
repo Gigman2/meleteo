@@ -1,14 +1,13 @@
 import { FC, Fragment } from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Box, Container, Flex, Button, Link, Heading } from '@chakra-ui/react'
+import { Box, Container, Flex, Button, Link, Image } from '@chakra-ui/react'
 
 interface IProps {
-  bgColor: string
   links: { name: string; path: string; weight?: string }[]
 }
 
-const DesktopNavbar: FC<IProps> = ({ links, bgColor }) => {
+const DesktopNavbar: FC<IProps> = ({ links }) => {
   const router = useRouter()
 
   return (
@@ -18,83 +17,47 @@ const DesktopNavbar: FC<IProps> = ({ links, bgColor }) => {
       as="nav"
       w="full"
       zIndex={10}
-      pos="fixed"
+      pos="relative"
       align="center"
-      bgColor={bgColor}
+      bgColor={'base.600'}
       d={{ base: 'none', xl: 'flex' }}
+      overflowY="hidden"
     >
-      <Container
-        d="flex"
-        justifyContent="space-between"
-        minW={{ lg: '6xl', '4xl': '8xl' }}
-      >
+      <Container d="flex" minW={{ lg: '7xl', '4xl': '8xl' }}>
         <NextLink href="/" passHref>
           <Link _focus={{ outline: 'none' }} _hover={{ outline: 'none' }}>
-            <Heading
-              fontSize={24}
-              letterSpacing={2}
-              textTransform="uppercase"
-              color={bgColor == 'white' ? 'gray.900' : 'white'}
-            >
-              Ocha
-            </Heading>
+            <Image src="/images/logo.png" h={16} />
           </Link>
         </NextLink>
 
-        <Box>
-          <Flex align="center">
+        <Box ml={24}>
+          <Flex align="center" h={'100%'}>
             {links.map((item, idx) => (
               <Fragment key={item.name}>
                 <NextLink href={item.path} passHref>
                   <Link
-                    fontWeight={item.weight || 300}
+                    fontWeight={700}
                     fontSize={{ base: 'sm', xl: 'md' }}
                     _hover={{ hover: 'none' }}
                     _focus={{ outline: 'none' }}
                     rel="noreferrer"
-                    color={bgColor == 'white' ? 'gray.900' : 'white'}
-                    {...(router.pathname === item.path
-                      ? {
-                          fontWeight: 700
-                        }
-                      : '')}
+                    opacity={'70%'}
+                    {...{
+                      color: router.pathname === item.path ? '#a7cf3e' : 'white'
+                    }}
                   >
                     {item.name}
                   </Link>
                 </NextLink>
-                {links.length !== idx + 1 && <Box mx={4} />}
+                {links.length !== idx + 1 && <Box mx={12} />}
               </Fragment>
             ))}
-            <NextLink
-              href="https://cleaners.ochaclean.com/create-account"
-              passHref
-            >
-              <Link
-                _hover={{ hover: 'none' }}
-                _focus={{ outline: 'none' }}
-                rel="noreferrer"
-              >
-                <Button
-                  ml={4}
-                  py={6}
-                  px={6}
-                  color="white"
-                  rounded="sm"
-                  fontWeight={300}
-                  borderWidth={0.5}
-                  borderColor={'#fff'}
-                  colorScheme="buttonDarkScheme"
-                  _focus={{ outline: 'none', bg: '#000009' }}
-                  _hover={{ bg: 'transparent', color: 'white' }}
-                  fontSize={{ base: 'sm', xl: 'sm' }}
-                >
-                  Register as a cleaner
-                </Button>
-              </Link>
-            </NextLink>
           </Flex>
         </Box>
       </Container>
+      <Box opacity={'20%'} h="100%" w={40} pos="absolute" right={0}>
+        <Image src={'/images/GAYO-flat.png'} w="100%" />
+      </Box>
     </Flex>
   )
 }

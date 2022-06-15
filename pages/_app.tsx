@@ -24,31 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const showFooter = !noFooterPages.includes(router.pathname)
 
   const links = [
-    { name: 'About us', path: '/about-us' },
-    { name: 'FAQ', path: '/faq ' },
-    { name: 'Contact Us', path: '/contact-us' },
-    {
-      name: 'Signup/Login',
-      path: 'https://app.ochaclean.com',
-      weight: 'bold'
-    }
+    { name: 'Home', path: '/' },
+    { name: 'Sectors', path: '/sectors ' },
+    { name: 'Company', path: '/company' },
+    { name: 'Contact Us', path: '/contact-us' }
   ]
-
-  const [bgColor, setBgColor] = useState('transparent')
-
-  // navbar scroll changeBackground function
-  const changeBackground = () => {
-    if (window.scrollY >= 66) {
-      setBgColor('white')
-    } else {
-      setBgColor('transparent')
-    }
-  }
-
-  useEffect(() => {
-    changeBackground()
-    window.addEventListener('scroll', changeBackground)
-  })
 
   return (
     <ChakraProvider theme={theme} resetCSS>
@@ -70,8 +50,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Box bgColor="white" pos="relative" overflow="hidden">
             {showNav && (
               <>
-                <DesktopNavbar links={links} bgColor={bgColor} />
-                <MobileNavbar links={links} bgColor={bgColor} />
+                <DesktopNavbar links={links} />
+                <MobileNavbar links={links} />
               </>
             )}
 

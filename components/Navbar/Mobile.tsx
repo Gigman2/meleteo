@@ -15,11 +15,10 @@ import {
 } from '@chakra-ui/react'
 
 interface IProps {
-  bgColor: string
   links: { name: string; path: string; weight?: string }[]
 }
 
-const MobileNavbar: FC<IProps> = ({ links, bgColor }) => {
+const MobileNavbar: FC<IProps> = ({ links }) => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -32,10 +31,9 @@ const MobileNavbar: FC<IProps> = ({ links, bgColor }) => {
       pos="fixed"
       zIndex={100}
       align="center"
-      bgColor={bgColor}
       justify="space-between"
       d={{ base: 'flex', xl: 'none' }}
-      color={bgColor == 'white' ? 'gray.900' : 'white'}
+      color={'white'}
     >
       <Box>
         <NextLink href="/" passHref>
@@ -44,7 +42,7 @@ const MobileNavbar: FC<IProps> = ({ links, bgColor }) => {
               fontSize={24}
               letterSpacing={2}
               textTransform="uppercase"
-              color={bgColor == 'white' ? 'gray.900' : 'white'}
+              color={'white'}
             >
               Ocha
             </Heading>

@@ -1,13 +1,16 @@
 {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
     "[typescript]": {
-      "editor.formatOnSave": true
+      "editor.formatOnSave": false
     },
-    "editor.formatOnSave": false,
-    "eslint.alwaysShowStatus": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "editor.fontLigatures": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+        "source.fixAll.eslint": true
     },
+    "eslint.alwaysShowStatus": true,
     "eslint.validate": [
       "javascript",
       "typescript"
