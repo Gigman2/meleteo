@@ -8,7 +8,7 @@ const NewsLetter: FC = () => {
       <Text
         textDecorationLine={'underline'}
         textDecorationThickness={'1px'}
-        textUnderlineOffset={20}
+        textUnderlineOffset={'20px'}
         textDecorationColor={'rbga(0, 104, 55, 0.1)'}
         textAlign={'center'}
         color={'base.600'}

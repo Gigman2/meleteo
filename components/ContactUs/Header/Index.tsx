@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import React from 'react'
-import { Box, Button, Grid, GridItem, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Input, Text } from '@chakra-ui/react'
 
 const Header: FC = () => {
   return (
