@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import React from 'react'
-import { Box, Text, Icon, Grid, GridItem, Image } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Header from '@components/Atom/header'
 import FaqCard from '@components/Blocks/Cards/FaqCard'
 

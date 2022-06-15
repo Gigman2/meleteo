@@ -1,21 +1,15 @@
 import type { NextPage } from 'next'
 import Layout from '@components/Layout'
-import Hero from '@components/ContactUs/Hero'
-import Content from '@components/ContactUs/Content'
-import CTA from '@components/CTA'
-import Contact from '@components/ContactUs/Contact'
-import Testimonials from '@components/AboutUs/Testimonials'
+import GetInTouch from '@components/ContactUs/GetInTouch/Index'
+import Header from '@components/ContactUs/Header/Index'
 
-const AboutUs: NextPage = () => {
+const ContactUs: NextPage = () => {
   return (
     <Layout>
-      <Hero />
-      <Content />
-      <Contact />
-      <Testimonials />
-      <CTA />
+      <Header />
+      <GetInTouch />
     </Layout>
   )
 }
 
-export default AboutUs
+export default ContactUs

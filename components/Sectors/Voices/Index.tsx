@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import React from 'react'
 import Header from '@components/Atom/header'
-import { Box, Text, Image, Grid, GridItem } from '@chakra-ui/react'
+import { Box, Grid, GridItem } from '@chakra-ui/react'
 import VoiceCard from '@components/Blocks/Cards/VoicesCard'
 
 const Voices: FC = () => {
