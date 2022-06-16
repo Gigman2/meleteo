@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 
@@ -26,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Sectors', path: '/sectors ' },
-    { name: 'Company', path: '/company' },
+    { name: 'Organization', path: '/organization' },
     { name: 'Contact Us', path: '/contact-us' }
   ]
 
