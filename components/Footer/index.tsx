@@ -1,5 +1,13 @@
 import { FC } from 'react'
-import { Box, Container, Grid, GridItem, Text, Icon } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Grid,
+  GridItem,
+  Text,
+  Icon,
+  Image
+} from '@chakra-ui/react'
 import { BsArrowUp } from 'react-icons/bs'
 
 const Footer: FC = () => {
@@ -11,7 +19,10 @@ const Footer: FC = () => {
         fontSize={{ base: 'sm', xl: 'md' }}
         minW={{ lg: '7xl', '4xl': '8xl' }}
       >
-        <Grid my={12} templateColumns="repeat(12,1fr)" gap={24}>
+        <Box mt={6}>
+          <Image src="./images/logo.png" h={24} mb={6} />
+        </Box>
+        <Grid mb={12} mt={4} templateColumns="repeat(12,1fr)" gap={24}>
           <Box as={GridItem} colSpan={6}>
             <Text textAlign={'left'} color="base.400" fontSize={14}>
               GAYO is a registered NGO(registration number 305992) and a company

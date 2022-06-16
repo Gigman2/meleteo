@@ -12,10 +12,9 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <Hero
-        cover="./images/daniel-rauber-wOWEyyoFEyU.jpg"
-        title="Great Africa Youth Organization"
-        subtext="We are a youth-led, gender-balanced advocacy group which focuses
-              largely on environmental sustainability and community development"
+        cover="./images/ORG_HOME.png"
+        title="About Us"
+        subtext="Our goal is to create a balanced relationship between humans and the various natural systems on which they depend in such a way that all the components are accorded a proper degree of sustainability"
       />
     </Layout>
   )
