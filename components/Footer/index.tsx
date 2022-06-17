@@ -45,6 +45,13 @@ const Footer: FC = () => {
                 <Text textAlign={'left'} color="base.400" fontSize={14}>
                   64 Lumumba Street, Adentan, Accra, Republic of Ghana
                 </Text>
+                <Text
+                  textAlign={'left'}
+                  color="whiteAlpha.700"
+                  fontSize={14}
+                  mt={8}
+                >Tel: +233 (0) 20 7840 1111
+                </Text>
               </Box>
               <Box>
                 <Icon as={BsArrowUp} color={'base.400'} boxSize={20} />
