@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <Layout>
       <Hero
         cover="./images/daniel-rauber-wOWEyyoFEyU.jpg"
-        title="Great Africa Youth Organization"
+        title="Green Africa Youth Organization"
         subtext="We are a youth-led, gender-balanced advocacy group which focuses
               largely on environmental sustainability and community development"
       />
