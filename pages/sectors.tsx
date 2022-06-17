@@ -14,7 +14,13 @@ const Sectors: NextPage = () => {
         title="Climate Change"
         subtext="We are a youth-led, gender-balanced advocacy group which focuses largely on environmental sustainability and community development"
       />
-      <Impact />
+      <Impact
+        title="Impact Efforts"
+        subtext="Our mission is to research and provide and solutions to pressing
+              environmental issues through youth empowerment and public
+              education."
+        cover="./images/IMPACT EFF.png"
+      />
       <Voices />
       <Faq />
       <NewsLetter />

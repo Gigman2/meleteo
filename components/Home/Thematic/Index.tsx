@@ -6,7 +6,7 @@ import { Box, Text, Image, Grid, GridItem } from '@chakra-ui/react'
 const Thematic: FC = () => {
   return (
     <Box px={{ base: 4, '2xl': 32 }}>
-      <Header title={'Thematic Ares'} />
+      <Header title={'Thematic Areas'} />
 
       <Box mt={8}>
         <Grid mt={12} templateColumns="repeat(12,1fr)">
@@ -29,12 +29,12 @@ const Thematic: FC = () => {
               lineHeight={1.4}
               fontWeight={450}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptates sunt similique, saepe aspernatur reprehenderit
-              doloremque tenetur ipsa repellendus officiis veniam voluptatem hic
-              deleniti porro nesciunt reiciendis vero numquam quaerat possimus
-              inventore harum nam quae? Voluptas accusamus harum, placeat odio
-              minus sint odit eum error qui deleniti, nisi
+              In our effort to promote Ghana’s climate change mitigation and
+              adaptation strategies, we've launched, coordinated, and partnered
+              with industry stakeholders to reinforce existing efforts of young
+              people in the climate space through initiatives such as
+              Trees4Diversity, Youth Climate Council Ghana, Local Conference of
+              Youth Ghana, and Water for Climate Adaptation.
             </Text>
           </Box>
         </Grid>
@@ -58,12 +58,11 @@ const Thematic: FC = () => {
               lineHeight={1.4}
               fontWeight={450}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptates sunt similique, saepe aspernatur reprehenderit
-              doloremque tenetur ipsa repellendus officiis veniam voluptatem hic
-              deleniti porro nesciunt reiciendis vero numquam quaerat possimus
-              inventore harum nam quae? Voluptas accusamus harum, placeat odio
-              minus sint odit eum error qui deleniti, nisi
+              We've helped formalized the informal waste sector, conducted
+              climate change simulation exercises designed by MIT for different
+              stakeholders, engaged over 7,000 youth in climate change
+              knowledge, as well as hosted the Africa Clean Up Conference in
+              Ghana.
             </Text>
           </Box>
         </Grid>
@@ -87,12 +86,9 @@ const Thematic: FC = () => {
               lineHeight={1.4}
               fontWeight={450}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptates sunt similique, saepe aspernatur reprehenderit
-              doloremque tenetur ipsa repellendus officiis veniam voluptatem hic
-              deleniti porro nesciunt reiciendis vero numquam quaerat possimus
-              inventore harum nam quae? Voluptas accusamus harum, placeat odio
-              minus sint odit eum error qui deleniti, nisi
+              GAYO has hosted DRR workshops, and national quizzes with the
+              national disaster management office and UN agencies to educate
+              youth (over 4000 students) on climate change and disaster risk
             </Text>
           </Box>
         </Grid>

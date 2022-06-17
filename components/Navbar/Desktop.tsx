@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Box, Container, Flex, Button, Link, Image } from '@chakra-ui/react'
+import { Box, Container, Flex, Link, Image } from '@chakra-ui/react'
 
 interface IProps {
   links: { name: string; path: string; weight?: string }[]
@@ -38,7 +38,7 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
                   <Link
                     fontWeight={700}
                     fontSize={{ base: 'sm', xl: 'md' }}
-                    _hover={{ hover: 'none' }}
+                    _hover={{ color: '#a7cf3e' }}
                     _focus={{ outline: 'none' }}
                     rel="noreferrer"
                     opacity={'70%'}

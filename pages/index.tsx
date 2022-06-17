@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Layout from '@components/Layout'
 import Hero from '@components/Blocks/Hero/Index'
 import Impact from '@components/Home/Impact/Index'
+import ImpactSlide from '@components/Sectors/Impact/Index'
 import Thematic from '@components/Home/Thematic/Index'
 import Partners from '@components/Home/Partners'
 import Gallery from '@components/Home/Gallery/Index'
@@ -17,6 +18,15 @@ const Home: NextPage = () => {
               largely on environmental sustainability and community development"
       />
       <Impact />
+      <ImpactSlide
+        title="Mission"
+        subtext="Our mission is to research and provide 
+solutions to pressing environmental 
+issues through youth empowerment 
+and public education."
+        cover="./images/MISSION.png"
+        mb={12}
+      />
       <Thematic />
       <Partners />
       <Gallery />
