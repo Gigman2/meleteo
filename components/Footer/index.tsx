@@ -50,7 +50,8 @@ const Footer: FC = () => {
                   color="whiteAlpha.700"
                   fontSize={14}
                   mt={8}
-                >Tel: +233 (0) 20 7840 1111
+                >
+                  Tel: +233 (0) 20 7840 1111
                 </Text>
               </Box>
               <Box>
