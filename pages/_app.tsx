@@ -22,10 +22,23 @@ function MyApp({ Component, pageProps }: AppProps) {
   const showNav = !noNavPages.includes(router.pathname)
   const showFooter = !noFooterPages.includes(router.pathname)
 
-  const links = [
+  interface Ilinks {
+    name: string
+    path: string
+    children?: { name: string; path: string }[]
+  }
+  const links: Ilinks[] = [
     { name: 'Home', path: '/' },
     { name: 'Sectors', path: '/sectors ' },
-    { name: 'Organization', path: '/organization' },
+    {
+      name: 'Organization',
+      path: '/organization/',
+      children: [
+        { name: 'About Us', path: '' },
+        { name: 'Media', path: 'media' },
+        { name: 'Careers', path: 'career' }
+      ]
+    },
     { name: 'Contact Us', path: '/contact-us' }
   ]
 

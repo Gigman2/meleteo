@@ -20,7 +20,7 @@ const Footer: FC = () => {
         minW={{ lg: '7xl', '4xl': '8xl' }}
       >
         <Box mt={6}>
-          <Image src="./images/logo.png" h={24} mb={6} />
+          <Image src="/images/logo.png" h={24} mb={6} />
         </Box>
         <Grid mb={12} mt={4} templateColumns="repeat(12,1fr)" gap={24}>
           <Box as={GridItem} colSpan={6}>

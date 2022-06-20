@@ -1,9 +1,19 @@
 import { FC } from 'react'
 import React from 'react'
 import Header from '@components/Atom/header'
-import { Box, Text, Image } from '@chakra-ui/react'
+import { Box, Text, Image, Grid } from '@chakra-ui/react'
 
 const Impact: FC = () => {
+  const impactImages = [
+    './images/impacts/Our Impact H.png',
+    './images/impacts/Our Impact G.png',
+    './images/impacts/Our Impact F.png',
+    './images/impacts/Our Impact E.png',
+    './images/impacts/Our Impact D.png',
+    './images/impacts/Our Impact C.png',
+    './images/impacts/Our Impact B.png',
+    './images/impacts/Our Impact A.png'
+  ]
   return (
     <Box py={24} px={{ base: 4, '2xl': 32 }}>
       <Header title={'Our Impact'} />
@@ -15,9 +25,13 @@ const Impact: FC = () => {
         </Text>
       </Box>
 
-      <Box>
-        <Image src="./images/GAYO Impct Icons.png" />
-      </Box>
+      <Grid templateColumns="repeat(4,1fr)">
+        {impactImages.map(item => (
+          <Box p={4}>
+            <Image src={item} borderWidth={1} borderColor={'silver'} />
+          </Box>
+        ))}
+      </Grid>
     </Box>
   )
 }

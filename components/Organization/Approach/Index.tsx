@@ -37,7 +37,9 @@ const Approach: FC = () => {
           justifyContent={'center'}
           alignItems="center"
         >
-          <Box w={48} h={48} bg="gray.200"></Box>
+          <Box w={48} h={48}>
+            <Image src="./images/impacts/Our Approach B.png" />
+          </Box>
         </Box>
       </Grid>
       <Grid templateColumns="repeat(11,1fr)" mt={6} pb={6}>
@@ -62,7 +64,9 @@ const Approach: FC = () => {
           justifyContent={'center'}
           alignItems="center"
         >
-          <Box w={48} h={48} bg="gray.200"></Box>
+          <Box w={48} h={48}>
+            <Image src="./images/impacts/Our Approach A.png" />
+          </Box>
         </Box>
       </Grid>
     </Box>

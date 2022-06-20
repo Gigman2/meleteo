@@ -4,10 +4,11 @@ import { Box, Flex, Text } from '@chakra-ui/react'
 interface IProp {
   cover: string
   title: string
-  subtext: string
+  subtext?: string
+  titleStyle?: any
 }
 
-const HeroDesktop: FC<IProp> = ({ cover, title, subtext }) => {
+const HeroDesktop: FC<IProp> = ({ cover, title, subtext, titleStyle }) => {
   return (
     <Flex w="full" bgSize="cover">
       <Box
@@ -27,8 +28,13 @@ const HeroDesktop: FC<IProp> = ({ cover, title, subtext }) => {
           d="flex"
           alignItems={'center'}
         >
-          <Box w={'60%'}>
-            <Text fontSize={72} color="white" fontWeight={700} lineHeight={1}>
+          <Box w={'60%'} {...titleStyle}>
+            <Text
+              fontSize={titleStyle?.fontSize || 72}
+              color="white"
+              fontWeight={700}
+              lineHeight={1}
+            >
               {title}
             </Text>
             <Text color="white" fontWeight={400} fontSize={24} mt={6}>

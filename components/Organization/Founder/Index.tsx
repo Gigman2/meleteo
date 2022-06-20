@@ -7,7 +7,7 @@ const Impact: FC = () => {
     <Box>
       <Grid templateColumns="repeat(12,1fr)">
         <Box as={GridItem} colSpan={6}>
-          <Box w="100%" h="100%" bg="gray.200">
+          <Box w="100%" h="100%">
             <Image src={'./images/CEO_IMG.png'} />
           </Box>
         </Box>

@@ -21,6 +21,7 @@
         "utils/*"
       ],
       "@assets/*": ["public/assets/*"],
+      "@images/*": ["public/images/*"],
       "@data/*": [
         "data/*"
       ],
