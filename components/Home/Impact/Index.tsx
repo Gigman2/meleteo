@@ -15,7 +15,7 @@ const Impact: FC = () => {
     './images/impacts/Our Impact A.png'
   ]
   return (
-    <Box py={24} px={{ base: 4, '2xl': 32 }}>
+    <Box py={24} px={{ base: 4, '2xl': 48 }}>
       <Header title={'Our Impact'} />
 
       <Box mt={8} w={'50%'}>

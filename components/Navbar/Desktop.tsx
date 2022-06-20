@@ -72,7 +72,7 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
       bgColor={'base.600'}
       d={{ base: 'none', xl: 'flex' }}
     >
-      <Container d="flex" minW={{ lg: '7xl', '4xl': '8xl' }}>
+      <Container d="flex" minW={'100%'} px={{ base: 4, '2xl': 32 }}>
         <NextLink href="/" passHref>
           <Link _focus={{ outline: 'none' }} _hover={{ outline: 'none' }}>
             <Image src="/images/logo.png" h={16} />
