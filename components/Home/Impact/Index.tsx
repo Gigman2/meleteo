@@ -15,7 +15,7 @@ const Impact: FC = () => {
     './images/impacts/Our Impact A.png'
   ]
   return (
-    <Box py={24} px={{ base: 4, '2xl': 48 }}>
+    <Box py={24} px={{ base: 4, '2xl': 56 }}>
       <Header title={'Our Impact'} />
 
       <Box mt={8} w={'50%'}>
@@ -27,7 +27,7 @@ const Impact: FC = () => {
 
       <Grid templateColumns="repeat(4,1fr)">
         {impactImages.map(item => (
-          <Box p={4}>
+          <Box p={{ base: 4, xl: 12 }}>
             <Image src={item} borderWidth={1} borderColor={'silver'} />
           </Box>
         ))}

@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Layout from '@components/Layout'
+import Layout from '@components/Layout/Index'
 import Hero from '@components/Blocks/Hero/Index'
 import Impact from '@components/Home/Impact/Index'
 import ImpactSlide from '@components/Sectors/Impact/Index'

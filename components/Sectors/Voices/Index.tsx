@@ -6,7 +6,7 @@ import VoiceCard from '@components/Blocks/Cards/VoicesCard'
 
 const Voices: FC = () => {
   return (
-    <Box py={24} px={{ base: 4, '2xl': 32 }}>
+    <Box py={24} px={{ base: 4, '2xl': 56 }}>
       <Header title={'Voices From Our Partners'} />
 
       <Grid mt={24} gap={12} templateColumns="repeat(4,1fr)">

@@ -13,7 +13,7 @@ const Impact: FC<
 > = ({ title, subtext, cover, ...rest }) => {
   return (
     <Box {...rest}>
-      <Grid templateColumns="repeat(11,1fr)">
+      <Grid templateColumns="repeat(11,1fr)" maxH={124} overflow="hidden">
         <Box
           as={GridItem}
           colSpan={5}
@@ -63,8 +63,8 @@ const Impact: FC<
           </Box>
         </Box>
         <Box as={GridItem} colSpan={6}>
-          <Box w="100%" h="100%" bg="gray.200">
-            <Image src={cover} />
+          <Box w="100%" bg="gray.200">
+            <Image src={cover} w="100%" />
           </Box>
         </Box>
       </Grid>

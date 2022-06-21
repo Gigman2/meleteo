@@ -10,13 +10,17 @@ const VoiceCard: FC<IProp> = ({ theme }) => {
     <Box>
       <Box d={'flex'} alignItems="center">
         <Box w={20} h={20} rounded={'full'} bg="base.400" mr={6}></Box>
-        <Text
-          color={theme === 'inverse' ? 'black' : 'base.400'}
-          fontSize={40}
-          fontWeight="bold"
-        >
-          John Doe
-        </Text>
+        <Box>
+          <Text
+            color={theme === 'inverse' ? 'black' : 'base.400'}
+            fontSize={36}
+            fontWeight="bold"
+            lineHeight={1.22}
+          >
+            John Doe
+          </Text>
+          <Text fontSize={18}>Project Manager, UNDP</Text>
+        </Box>
       </Box>
       <Text
         my={8}

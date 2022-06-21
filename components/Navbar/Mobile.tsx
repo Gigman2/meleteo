@@ -8,7 +8,7 @@ import {
   Link,
   Fade,
   Button,
-  Heading,
+  Image,
   Divider,
   IconButton,
   useDisclosure
@@ -25,6 +25,7 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
     <Flex
       h={24}
       px={{ base: 8, xl: 2 }}
+      bgColor={'base.600'}
       as="nav"
       w="full"
       shadow="sm"
@@ -38,14 +39,7 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
       <Box>
         <NextLink href="/" passHref>
           <Link _focus={{ outline: 'none' }} _hover={{ outline: 'none' }}>
-            <Heading
-              fontSize={24}
-              letterSpacing={2}
-              textTransform="uppercase"
-              color={'white'}
-            >
-              Ocha
-            </Heading>
+            <Image src="/images/logo.png" h={16} />
           </Link>
         </NextLink>
       </Box>

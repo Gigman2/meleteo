@@ -6,7 +6,7 @@ import Header from '@components/Atom/header'
 
 const Approach: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 32 }} mt={24} mb={12}>
+    <Box px={{ base: 4, '2xl': 56 }} mt={24} mb={12}>
       <Header title="Our Approach" />
       <Grid
         templateColumns="repeat(11,1fr)"

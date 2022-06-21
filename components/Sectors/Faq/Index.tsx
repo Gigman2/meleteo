@@ -6,7 +6,7 @@ import FaqCard from '@components/Blocks/Cards/FaqCard'
 
 const Faq: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 32 }}>
+    <Box px={{ base: 4, '2xl': 56 }}>
       <Header title={'FAQs'} />
 
       <Box mt={4}>

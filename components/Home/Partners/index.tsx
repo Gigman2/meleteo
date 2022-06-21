@@ -5,7 +5,7 @@ import { Box, Image } from '@chakra-ui/react'
 
 const Partners: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 32 }} mt={6}>
+    <Box px={{ base: 4, '2xl': 56 }} my={32}>
       <Header title={'Partners'} />
 
       <Box mt={8}>

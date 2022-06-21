@@ -5,7 +5,7 @@ import { Box, Text, Image, Grid, GridItem } from '@chakra-ui/react'
 
 const Thematic: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 32 }}>
+    <Box px={{ base: 4, '2xl': 56 }} mt={24}>
       <Header title={'Thematic Areas'} />
 
       <Box mt={8}>

@@ -8,6 +8,8 @@ interface ILink {
   name: string
   path: string
   weight?: string
+  width?: number
+  height?: number
   children?: { name: string; path: string }[]
 }
 const NavbarLink: FC<{ item: ILink }> = ({ item }) => {
@@ -23,7 +25,6 @@ const NavbarLink: FC<{ item: ILink }> = ({ item }) => {
           _focus={{ outline: 'none' }}
           rel="noreferrer"
           pos="relative"
-          opacity={'70%'}
           {...{
             color: router.pathname === item.path ? '#a7cf3e' : 'white'
           }}
@@ -37,8 +38,8 @@ const NavbarLink: FC<{ item: ILink }> = ({ item }) => {
               pos="absolute"
               bg="base.400"
               mt={4}
-              w="150%"
-              h={isHovered ? 32 : 0}
+              w={item.width}
+              h={isHovered ? item.height : 0}
             >
               {item?.children.map(link => (
                 <NextLink href={item.path + link.path} passHref>
@@ -69,10 +70,11 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
       zIndex={10}
       pos="relative"
       align="center"
+      p={0}
       bgColor={'base.600'}
       d={{ base: 'none', xl: 'flex' }}
     >
-      <Container d="flex" minW={'100%'} px={{ base: 4, '2xl': 32 }}>
+      <Container d="flex" minW={'100%'} px={{ base: 4, '2xl': 28 }}>
         <NextLink href="/" passHref>
           <Link _focus={{ outline: 'none' }} _hover={{ outline: 'none' }}>
             <Image src="/images/logo.png" h={16} />

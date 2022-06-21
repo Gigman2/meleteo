@@ -6,9 +6,9 @@ import MediaSide from './MediaSide/Index'
 
 const MediaContent: FC = () => {
   return (
-    <Box my={24} px={{ base: 4, '2xl': 32 }} py={6}>
+    <Box my={24} px={{ base: 4, '2xl': 56 }} py={6}>
       <Grid templateColumns="repeat(24,1fr)" gap={12}>
-        <GridItem colSpan={13}>
+        <GridItem colSpan={14}>
           <Box d="flex" alignItems={'end'}>
             <Text
               fontSize={32}
@@ -30,7 +30,7 @@ const MediaContent: FC = () => {
             </Box>
           </Grid>
         </GridItem>
-        <GridItem colSpan={11}>
+        <GridItem colSpan={10}>
           <MediaSide />
         </GridItem>
       </Grid>
