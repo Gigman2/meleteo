@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { NextPage } from 'next'
-import Layout from '@components/Layout/index'
+import Layout from '@components/Layout/Index'
 import Hero from '@components/Blocks/Hero/Index'
 import NewsLetter from '@components/Blocks/NewsLetter/Index'
 import ImagesCard from '@components/Media/ImageCard/Index'
