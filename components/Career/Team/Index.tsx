@@ -16,7 +16,13 @@ const Team: FC = () => {
         bottom={24}
         zIndex={3}
       ></Box>
-      <Box pos={"relative"} px={{ base: 4, '2xl': 56 }} mt={24} mb={12} zIndex={4}>
+      <Box
+        pos={'relative'}
+        px={{ base: 4, '2xl': 56 }}
+        mt={24}
+        mb={12}
+        zIndex={4}
+      >
         <Header title="Our Team" />
         <Grid templateColumns="repeat(12,1fr)" mt={8} pb={6}>
           <Box
