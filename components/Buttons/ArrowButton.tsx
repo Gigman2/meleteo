@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Box, Icon, Flex, BoxProps } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import { Arrow } from 'theme/Icons'

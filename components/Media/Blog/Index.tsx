@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import React from 'react'
-import { Box, Text, Icon } from '@chakra-ui/react'
-import { FiDisc } from 'react-icons/fi'
+import { Box, Text } from '@chakra-ui/react'
 
 const Blog: FC = () => {
   return (

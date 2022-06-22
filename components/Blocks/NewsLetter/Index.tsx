@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import React from 'react'
-import { Box, Button, Input, Spacer, Text } from '@chakra-ui/react'
+import { Box, Button, Input, Text } from '@chakra-ui/react'
 
 const NewsLetter: FC = () => {
   return (
