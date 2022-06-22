@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Layout from '@components/Layout'
+import Layout from '@components/Layout/Index'
 import GetInTouch from '@components/ContactUs/GetInTouch/Index'
 import Header from '@components/ContactUs/Header/Index'
 
