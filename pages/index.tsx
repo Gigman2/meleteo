@@ -9,6 +9,20 @@ import Gallery from '@components/Home/Gallery/Index'
 import NewsLetter from '@components/Blocks/NewsLetter/Index'
 
 const Home: NextPage = () => {
+  const slideData = [
+    {
+      title: 'Mission',
+      subtext:
+        'Our mission is to research and provide  solutions to pressing environmental issues through youth empowerment  and public education.',
+      cover: './images/MISSION.png'
+    },
+    {
+      title: 'Vision',
+      subtext:
+        'We work to create a world whereby conserving the natural environment will be a number one priority of the masses',
+      cover: './images/VISION.png'
+    }
+  ]
   return (
     <Layout>
       <Hero
@@ -18,15 +32,7 @@ const Home: NextPage = () => {
               largely on environmental sustainability and community development"
       />
       <Impact />
-      <ImpactSlide
-        title="Mission"
-        subtext="Our mission is to research and provide 
-solutions to pressing environmental 
-issues through youth empowerment 
-and public education."
-        cover="./images/MISSION.png"
-        mb={12}
-      />
+      <ImpactSlide data={slideData} mb={12} />
       <Thematic />
       <Partners />
       <Gallery />
