@@ -6,7 +6,7 @@ const Header: FC = () => {
   return (
     <Box py={{ base: 12 }} bgImage="./images/contact_image.png">
       <Box
-        maxW={{ base: '85vw', md: '600px', lg: '7000px' }}
+        maxW={{ base: '85vw', md: '600px', lg: '700px' }}
         mx={'auto'}
         bg="base.400"
         p={12}
