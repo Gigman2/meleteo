@@ -22,6 +22,12 @@ const MediaContent: FC = () => {
             <Box flex={1} h={'1px'} bg="base.600"></Box>
           </Box>
           <Grid mt={12} templateColumns="repeat(2,1fr)" gap={6}>
+            <Box as={GridItem} mb={6}>
+              <Post />
+            </Box>
+            <Box as={GridItem}>
+              <Post />
+            </Box>
             <Box as={GridItem}>
               <Post />
             </Box>

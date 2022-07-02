@@ -26,7 +26,13 @@ const MediaSide: FC = () => {
 
         <TabPanels>
           <TabPanel p={0}>
-            <Box my={4}>
+            <Box mt={8}>
+              <Blog />
+            </Box>
+            <Box mt={8}>
+              <Blog />
+            </Box>
+            <Box mt={8}>
               <Blog />
             </Box>
           </TabPanel>

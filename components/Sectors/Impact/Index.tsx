@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useState } from 'react'
 import React from 'react'
-import { motion } from 'framer-motion'
 import { Box, Text, Icon, Grid, GridItem, Image } from '@chakra-ui/react'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 

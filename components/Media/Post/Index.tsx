@@ -6,7 +6,7 @@ import { FiDisc } from 'react-icons/fi'
 const Post: FC = () => {
   return (
     <>
-      <Box w="100%" h={36} bg="#5ebb8c"></Box>
+      <Box w="100%" h={44} bg="#5ebb8c"></Box>
       <Text my={3} fontWeight={700} color="base.600" fontSize={20}>
         Environmental Education
       </Text>
