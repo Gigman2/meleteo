@@ -75,48 +75,50 @@ const Impact: FC<
             ))}
           </Box>
 
-          <Box
-            d="flex"
-            w={'100px'}
-            justifyContent="space-between"
-            mt={8}
-            ml={24}
-          >
+          {data.length > 1 && (
             <Box
-              w={10}
-              h={10}
               d="flex"
-              bg={activeIndex === 0 ? 'base.600' : '#125837'}
-              rounded="full"
-              alignItems="center"
-              justifyContent={'center'}
-              cursor={activeIndex === 0 ? 'not-allowed' : 'pointer'}
-              onClick={() =>
-                activeIndex === 0 ? null : prevSlide(100 / data.length)
-              }
+              w={'100px'}
+              justifyContent="space-between"
+              mt={8}
+              ml={24}
             >
-              <Icon as={IoIosArrowBack} boxSize={5} color="white" />
+              <Box
+                w={10}
+                h={10}
+                d="flex"
+                bg={activeIndex === 0 ? 'base.600' : '#125837'}
+                rounded="full"
+                alignItems="center"
+                justifyContent={'center'}
+                cursor={activeIndex === 0 ? 'not-allowed' : 'pointer'}
+                onClick={() =>
+                  activeIndex === 0 ? null : prevSlide(100 / data.length)
+                }
+              >
+                <Icon as={IoIosArrowBack} boxSize={5} color="white" />
+              </Box>
+              <Box
+                w={10}
+                h={10}
+                d="flex"
+                rounded="full"
+                bg={activeIndex >= data.length - 1 ? 'base.600' : '#125837'}
+                cursor={
+                  activeIndex >= data.length - 1 ? 'not-allowed' : 'pointer'
+                }
+                alignItems="center"
+                justifyContent={'center'}
+                onClick={() =>
+                  activeIndex >= data.length - 1
+                    ? null
+                    : nextSlide(100 / data.length)
+                }
+              >
+                <Icon as={IoIosArrowForward} boxSize={5} color="white" />
+              </Box>
             </Box>
-            <Box
-              w={10}
-              h={10}
-              d="flex"
-              rounded="full"
-              bg={activeIndex >= data.length - 1 ? 'base.600' : '#125837'}
-              cursor={
-                activeIndex >= data.length - 1 ? 'not-allowed' : 'pointer'
-              }
-              alignItems="center"
-              justifyContent={'center'}
-              onClick={() =>
-                activeIndex >= data.length - 1
-                  ? null
-                  : nextSlide(100 / data.length)
-              }
-            >
-              <Icon as={IoIosArrowForward} boxSize={5} color="white" />
-            </Box>
-          </Box>
+          )}
         </Box>
         <Box as={GridItem} colSpan={6}>
           <Box w="100%" bg="gray.200" overflow={'hidden'}>

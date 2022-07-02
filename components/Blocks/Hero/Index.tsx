@@ -25,7 +25,7 @@ const HeroDesktop: FC<IProp> = ({ cover, title, subtext, titleStyle }) => {
           h="100%"
           bgColor={'rgba(47, 122, 56, 0.2)'}
           transform="rotateY(180deg)"
-          px={{ base: 4, '2xl': 28 }}
+          px={{ xs: 6, sm: 6, md: 16, lg: 20, '2xl': 28, '4xl': 28 }}
           d="flex"
           alignItems={'center'}
         >

@@ -7,7 +7,6 @@ import {
   Flex,
   Link,
   Fade,
-  Button,
   Image,
   Divider,
   IconButton,
@@ -63,7 +62,7 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
                 rounded="md"
                 pos="absolute"
                 bgColor="white"
-                color="gray.900"
+                color="base.600"
               >
                 <Box py={2}>
                   {links.map((m, idx) => (
@@ -78,35 +77,6 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
                       <Divider />
                     </Box>
                   ))}
-                  <Box pt={2}>
-                    <NextLink
-                      href="https://cleaners.ochaclean.com/create-account"
-                      passHref
-                    >
-                      <Link
-                        _hover={{ hover: 'none' }}
-                        _focus={{ outline: 'none' }}
-                        rel="noreferrer"
-                      >
-                        <Button
-                          ml={4}
-                          bg="#000"
-                          py={6}
-                          px={6}
-                          color="white"
-                          rounded="sm"
-                          variant="solid"
-                          fontWeight={300}
-                          borderWidth={1}
-                          borderColor={'#000'}
-                          _focus={{ outline: 'none', bg: '#000009' }}
-                          fontSize="sm"
-                        >
-                          Register as a cleaner
-                        </Button>
-                      </Link>
-                    </NextLink>
-                  </Box>
                 </Box>
               </Box>
             )}
