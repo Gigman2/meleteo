@@ -11,6 +11,9 @@ import {
 import { BsArrowUp } from 'react-icons/bs'
 
 const Footer: FC = () => {
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   return (
     <Box w="full" py={{ xl: 5 }} bgColor="base.600">
       <Container
@@ -19,9 +22,11 @@ const Footer: FC = () => {
         fontSize={{ base: 'sm', xl: 'md' }}
         minW={{ lg: '7xl', '4xl': '8xl' }}
       >
-        <Box mt={6}>
-          <Image src="/images/logo.png" h={24} mb={6} />
-        </Box>
+        <a href="/">
+          <Box mt={6}>
+            <Image src="/images/logo.png" h={24} mb={6} />
+          </Box>
+        </a>
         <Grid mb={12} mt={4} templateColumns="repeat(12,1fr)" gap={24}>
           <Box as={GridItem} colSpan={6}>
             <Text textAlign={'left'} color="base.400" fontSize={14}>
@@ -54,7 +59,7 @@ const Footer: FC = () => {
                   Tel: +233 (0) 20 7840 1111
                 </Text>
               </Box>
-              <Box>
+              <Box onClick={() => scrollTop()} cursor="pointer">
                 <Icon as={BsArrowUp} color={'base.400'} boxSize={20} />
               </Box>
             </Box>

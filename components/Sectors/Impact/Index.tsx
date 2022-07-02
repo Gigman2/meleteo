@@ -17,20 +17,17 @@ const Impact: FC<
     [x: string]: any
   } & React.HTMLAttributes<HTMLDivElement>
 > = ({ data, ...rest }) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [direction, setDirection] = useState(1)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [left, setLeft] = useState(0)
 
-  const MotionBox = motion(Box)
-  const transition = { duration: 0.6 }
+  const prevSlide = (width: any) => {
+    setActiveIndex(prev => prev - 1)
+    setLeft(width * (activeIndex - 1))
+  }
 
-  const handleDirection = (d: number) => {
-    if (d === -1) {
-      setCurrentSlide(prev => prev - 1)
-      setDirection(1)
-    } else {
-      setCurrentSlide(prev => prev + 1)
-      setDirection(-1)
-    }
+  const nextSlide = (width: number) => {
+    setActiveIndex(prev => prev + 1)
+    setLeft(width * -1 * (activeIndex + 1))
   }
 
   return (
@@ -45,19 +42,24 @@ const Impact: FC<
           bg="base.400"
           justifyContent={'center'}
           alignItems="center"
+          overflow={'hidden'}
         >
-          <MotionBox
+          <Box
             w={`${100 * data.length}%`}
-            d="flex"
             boxSizing="border-box"
+            overflow="hidden"
             mr={24}
-            animate={{
-              x: `${direction * (100 / data.length) * currentSlide}%`,
-              transition: { ...transition }
-            }}
           >
             {data.map(item => (
-              <Box w={`${100 / data.length}%`} px={24}>
+              <Box
+                key={item.title}
+                w={`${100 / data.length}%`}
+                px={24}
+                float="left"
+                position={'relative'}
+                transition={'all .2s ease-in-out'}
+                left={`${left}%`}
+              >
                 <Text color={'white'} fontSize={48} fontWeight="bold">
                   {item.title}
                 </Text>
@@ -72,7 +74,7 @@ const Impact: FC<
                 </Text>
               </Box>
             ))}
-          </MotionBox>
+          </Box>
 
           <Box
             d="flex"
@@ -85,12 +87,14 @@ const Impact: FC<
               w={10}
               h={10}
               d="flex"
-              bg={currentSlide === 0 ? 'base.600' : '#125837'}
+              bg={activeIndex === 0 ? 'base.600' : '#125837'}
               rounded="full"
               alignItems="center"
               justifyContent={'center'}
-              cursor={currentSlide === 0 ? 'not-allowed' : 'pointer'}
-              onClick={() => (currentSlide === 0 ? null : handleDirection(-1))}
+              cursor={activeIndex === 0 ? 'not-allowed' : 'pointer'}
+              onClick={() =>
+                activeIndex === 0 ? null : prevSlide(100 / data.length)
+              }
             >
               <Icon as={IoIosArrowBack} boxSize={5} color="white" />
             </Box>
@@ -99,14 +103,16 @@ const Impact: FC<
               h={10}
               d="flex"
               rounded="full"
-              bg={currentSlide >= data.length - 1 ? 'base.600' : '#125837'}
+              bg={activeIndex >= data.length - 1 ? 'base.600' : '#125837'}
               cursor={
-                currentSlide >= data.length - 1 ? 'not-allowed' : 'pointer'
+                activeIndex >= data.length - 1 ? 'not-allowed' : 'pointer'
               }
               alignItems="center"
               justifyContent={'center'}
               onClick={() =>
-                currentSlide >= data.length - 1 ? null : handleDirection(1)
+                activeIndex >= data.length - 1
+                  ? null
+                  : nextSlide(100 / data.length)
               }
             >
               <Icon as={IoIosArrowForward} boxSize={5} color="white" />
@@ -115,22 +121,25 @@ const Impact: FC<
         </Box>
         <Box as={GridItem} colSpan={6}>
           <Box w="100%" bg="gray.200" overflow={'hidden'}>
-            <MotionBox
+            <Box
               w={`${100 * data.length}%`}
               d="flex"
               boxSizing="border-box"
               mr={24}
-              animate={{
-                x: `${direction * (100 / data.length) * currentSlide}%`,
-                transition: { ...transition }
-              }}
             >
               {data.map(item => (
-                <Box w={`${100 / data.length}%`}>
+                <Box
+                  w={`${100 / data.length}%`}
+                  key={item.cover}
+                  float={'left'}
+                  position={'relative'}
+                  transition={'all .2s ease-in-out'}
+                  left={`${left}%`}
+                >
                   <Image src={item.cover} w="100%" />
                 </Box>
               ))}
-            </MotionBox>
+            </Box>
           </Box>
         </Box>
       </Grid>
