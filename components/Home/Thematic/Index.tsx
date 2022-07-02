@@ -20,7 +20,15 @@ const Thematic: FC = () => {
             <Image src="./images/Climate Change.png" boxSize={40} />
           </Box>
           <Box as={GridItem} colSpan={7}>
-            <Text color={'base.400'} fontSize={40} fontWeight="bold">
+            <Text
+              color={'base.400'}
+              fontSize={40}
+              fontWeight="bold"
+              cursor="pointer"
+              _hover={{
+                textDecorationLine: 'underline'
+              }}
+            >
               Climate Change
             </Text>
             <Text
@@ -49,7 +57,14 @@ const Thematic: FC = () => {
             <Image src="./images/Circular Economy.png" boxSize={40} />
           </Box>
           <Box as={GridItem} colSpan={7}>
-            <Text color={'base.400'} fontSize={40} fontWeight="bold">
+            <Text
+              color={'base.400'}
+              fontSize={40}
+              fontWeight="bold"
+              _hover={{
+                textDecorationLine: 'underline'
+              }}
+            >
               Circular Economy
             </Text>
             <Text
@@ -77,7 +92,14 @@ const Thematic: FC = () => {
             <Image src="./images/Disaster Risk Management.png" boxSize={40} />
           </Box>
           <Box as={GridItem} colSpan={7}>
-            <Text color={'base.400'} fontSize={40} fontWeight="bold">
+            <Text
+              color={'base.400'}
+              fontSize={40}
+              fontWeight="bold"
+              _hover={{
+                textDecorationLine: 'underline'
+              }}
+            >
               Disaster Risk Reduction
             </Text>
             <Text

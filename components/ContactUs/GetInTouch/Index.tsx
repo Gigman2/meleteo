@@ -5,7 +5,7 @@ import Header from '@components/Atom/header'
 
 const GetInTouch: FC = () => {
   return (
-    <Box mt={8} px={{ base: 4, '2xl': 56 }}>
+    <Box mt={24} px={{ base: 4, '2xl': 56 }}>
       <Header title={'Get In Touch'} />
       <Text fontSize={24} color="base.600" fontWeight={450} mt={6}>
         You can reach us through any of the contacts below.
