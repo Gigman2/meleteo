@@ -7,12 +7,17 @@ import Role from './Role'
 
 const Roles: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 56 }} mt={24} mb={12}>
+    <Box px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 56 }} mt={24} mb={12}>
       <Header title="Available roles" />
-      <Grid templateColumns="repeat(12,1fr)" mt={8} pb={6} gap={12}>
+      <Grid
+        templateColumns={{ base: '100%', lg: 'repeat(12,1fr)' }}
+        mt={8}
+        pb={6}
+        gap={12}
+      >
         <Box
           as={GridItem}
-          colSpan={4}
+          colSpan={{ base: 1, lg: 4 }}
           bg="white"
           justifyContent={'center'}
           alignItems="center"
@@ -25,7 +30,7 @@ neque ultrices suscipit condimentum eu"
         </Box>
         <Box
           as={GridItem}
-          colSpan={4}
+          colSpan={{ base: 1, lg: 4 }}
           bg="white"
           justifyContent={'center'}
           alignItems="center"
@@ -38,7 +43,7 @@ neque ultrices suscipit condimentum eu"
         </Box>
         <Box
           as={GridItem}
-          colSpan={4}
+          colSpan={{ base: 1, lg: 4 }}
           bg="white"
           justifyContent={'center'}
           alignItems="center"

@@ -28,6 +28,7 @@ const VoiceCard: FC<IProp> = ({ theme }) => {
         fontSize={24}
         lineHeight={1.6}
         fontWeight={450}
+        pr={{ base: 6, lg: 0 }}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quis
         quam. Eveniet unde dicta sed harum! Fugiat, similique earum id veniam

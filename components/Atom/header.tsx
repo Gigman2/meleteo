@@ -9,7 +9,12 @@ interface IProp {
 const Header: FC<IProp> = ({ title }) => {
   return (
     <Box>
-      <Text fontWeight={700} fontSize={60} color="base.600" lineHeight={1.3}>
+      <Text
+        fontWeight={700}
+        fontSize={{ base: 44, md: 52, '2xl': 60 }}
+        color="base.600"
+        lineHeight={1.3}
+      >
         {title}
       </Text>
       <Box w={20} h={2} bgColor="base.400"></Box>

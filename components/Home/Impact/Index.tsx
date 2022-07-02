@@ -15,17 +15,17 @@ const Impact: FC = () => {
     './images/impacts/Our Impact A.png'
   ]
   return (
-    <Box py={24} px={{ base: 4, '2xl': 56 }}>
+    <Box py={24} px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 56 }}>
       <Header title={'Our Impact'} />
 
-      <Box mt={8} w={'50%'}>
+      <Box mt={8} w={{ base: '100%', lg: '50%' }}>
         <Text fontSize={32} color="base.600" fontWeight={500}>
           Wondering why we do what we do? <br /> Here are some long lasting
           impacts and ripple effects:
         </Text>
       </Box>
 
-      <Grid templateColumns="repeat(4,1fr)">
+      <Grid templateColumns={{ base: 'repeat(2,1fr)', lg: 'repeat(4,1fr)' }}>
         {impactImages.map(item => (
           <Box p={{ base: 4, xl: 12 }}>
             <Image src={item} borderWidth={1} borderColor={'silver'} />

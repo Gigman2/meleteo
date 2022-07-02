@@ -5,24 +5,24 @@ import { Box, Text, Image, Grid, GridItem } from '@chakra-ui/react'
 
 const Thematic: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 56 }} mt={24}>
+    <Box px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 56 }} mt={24}>
       <Header title={'Thematic Areas'} />
 
       <Box mt={8}>
-        <Grid mt={12} templateColumns="repeat(12,1fr)">
+        <Grid mt={12} templateColumns={{ base: '100%', lg: 'repeat(12,1fr)' }}>
           <Box
             as={GridItem}
             colSpan={5}
             d="flex"
             alignItems={'center'}
-            justifyContent="center"
+            justifyContent={{ base: 'flex-start', lg: 'center' }}
           >
             <Image src="./images/Climate Change.png" boxSize={40} />
           </Box>
           <Box as={GridItem} colSpan={7}>
             <Text
               color={'base.400'}
-              fontSize={40}
+              fontSize={{ base: 32, lg: 40 }}
               fontWeight="bold"
               cursor="pointer"
               _hover={{
@@ -33,7 +33,7 @@ const Thematic: FC = () => {
             </Text>
             <Text
               color={'base.600'}
-              fontSize={20}
+              fontSize={24}
               lineHeight={1.4}
               fontWeight={450}
             >
@@ -46,20 +46,20 @@ const Thematic: FC = () => {
             </Text>
           </Box>
         </Grid>
-        <Grid mt={12} templateColumns="repeat(12,1fr)">
+        <Grid mt={12} templateColumns={{ base: '100%', lg: 'repeat(12,1fr)' }}>
           <Box
             as={GridItem}
             colSpan={5}
             d="flex"
             alignItems={'center'}
-            justifyContent="center"
+            justifyContent={{ base: 'flex-start', lg: 'center' }}
           >
             <Image src="./images/Circular Economy.png" boxSize={40} />
           </Box>
           <Box as={GridItem} colSpan={7}>
             <Text
               color={'base.400'}
-              fontSize={40}
+              fontSize={{ base: 32, lg: 40 }}
               fontWeight="bold"
               _hover={{
                 textDecorationLine: 'underline'
@@ -69,7 +69,7 @@ const Thematic: FC = () => {
             </Text>
             <Text
               color={'base.600'}
-              fontSize={20}
+              fontSize={24}
               lineHeight={1.4}
               fontWeight={450}
             >
@@ -81,20 +81,20 @@ const Thematic: FC = () => {
             </Text>
           </Box>
         </Grid>
-        <Grid mt={12} templateColumns="repeat(12,1fr)">
+        <Grid mt={12} templateColumns={{ base: '100%', lg: 'repeat(12,1fr)' }}>
           <Box
             as={GridItem}
             colSpan={5}
             d="flex"
             alignItems={'center'}
-            justifyContent="center"
+            justifyContent={{ base: 'flex-start', lg: 'center' }}
           >
             <Image src="./images/Disaster Risk Management.png" boxSize={40} />
           </Box>
           <Box as={GridItem} colSpan={7}>
             <Text
               color={'base.400'}
-              fontSize={40}
+              fontSize={{ base: 32, lg: 40 }}
               fontWeight="bold"
               _hover={{
                 textDecorationLine: 'underline'
@@ -104,7 +104,7 @@ const Thematic: FC = () => {
             </Text>
             <Text
               color={'base.600'}
-              fontSize={20}
+              fontSize={24}
               lineHeight={1.4}
               fontWeight={450}
             >

@@ -5,7 +5,13 @@ import { Box, Button, Input, Text } from '@chakra-ui/react'
 const Header: FC = () => {
   return (
     <Box py={{ base: 12 }} bgImage="./images/contact_image.png">
-      <Box maxW={'700px'} mx={'auto'} bg="base.400" p={12}>
+      <Box
+        maxW={{ base: '85vw', md: '600px', lg: '7000px' }}
+        mx={'auto'}
+        bg="base.400"
+        p={12}
+        mt={{ base: 6, lg: 0 }}
+      >
         <Text color="white" fontSize={68} textAlign="center" fontWeight={700}>
           Contact Us
         </Text>

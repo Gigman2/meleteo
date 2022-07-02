@@ -25,20 +25,25 @@ const HeroDesktop: FC<IProp> = ({ cover, title, subtext, titleStyle }) => {
           h="100%"
           bgColor={'rgba(47, 122, 56, 0.2)'}
           transform="rotateY(180deg)"
-          px={{ xs: 6, sm: 6, md: 16, lg: 20, '2xl': 28, '4xl': 28 }}
+          px={{ base: 6, sm: 6, md: 16, lg: 20, '2xl': 28, '4xl': 28 }}
           d="flex"
           alignItems={'center'}
         >
-          <Box w={'60%'} {...titleStyle}>
+          <Box w={{ base: '100%', lg: '60%' }} {...titleStyle}>
             <Text
-              fontSize={titleStyle?.fontSize || 72}
+              fontSize={titleStyle?.fontSize || { base: 48, md: 52, '2xl': 72 }}
               color="white"
               fontWeight={700}
               lineHeight={1}
             >
               {title}
             </Text>
-            <Text color="white" fontWeight={400} fontSize={24} mt={6}>
+            <Text
+              color="white"
+              fontWeight={400}
+              fontSize={{ base: 20, lg: 24 }}
+              mt={6}
+            >
               {subtext}
             </Text>
           </Box>

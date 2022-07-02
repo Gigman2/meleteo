@@ -14,7 +14,12 @@ import {
 } from '@chakra-ui/react'
 
 interface IProps {
-  links: { name: string; path: string; weight?: string }[]
+  links: {
+    name: string
+    path: string
+    weight?: string
+    children: { name: string; path: string; weight?: string }[]
+  }[]
 }
 
 const MobileNavbar: FC<IProps> = ({ links }) => {
@@ -55,7 +60,7 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
           <Fade in={isOpen}>
             {isOpen && (
               <Box
-                w={52}
+                w={72}
                 right={4}
                 shadow="lg"
                 zIndex={10}
@@ -67,14 +72,31 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
                 <Box py={2}>
                   {links.map((m, idx) => (
                     <Box>
-                      <NextLink key={idx} href={m.path} passHref>
-                        <Link>
-                          <Flex justify="end" pr={5} py={3}>
-                            <Text fontWeight={700}>{m.name}</Text>
-                          </Flex>
-                        </Link>
-                      </NextLink>
-                      <Divider />
+                      {m.children ? (
+                        m.children.map(n => (
+                          <>
+                            <NextLink key={idx} href={n.path} passHref>
+                              <Link>
+                                <Flex justify="start" pl={5} py={3}>
+                                  <Text fontWeight={700}>{n.name}</Text>
+                                </Flex>
+                              </Link>
+                            </NextLink>
+                            <Divider />
+                          </>
+                        ))
+                      ) : (
+                        <>
+                          <NextLink key={idx} href={m.path} passHref>
+                            <Link>
+                              <Flex justify="start" pl={5} py={3}>
+                                <Text fontWeight={700}>{m.name}</Text>
+                              </Flex>
+                            </Link>
+                          </NextLink>
+                          <Divider />
+                        </>
+                      )}
                     </Box>
                   ))}
                 </Box>

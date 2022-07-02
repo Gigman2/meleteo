@@ -18,7 +18,7 @@ const Team: FC = () => {
       ></Box>
       <Box
         pos={'relative'}
-        px={{ base: 4, '2xl': 56 }}
+        px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 56 }}
         mt={24}
         mb={12}
         zIndex={4}
@@ -27,7 +27,7 @@ const Team: FC = () => {
         <Grid templateColumns="repeat(12,1fr)" mt={8} pb={6}>
           <Box
             as={GridItem}
-            colSpan={6}
+            colSpan={{ base: 12, lg: 6 }}
             bg="white"
             justifyContent={'center'}
             alignItems="center"
@@ -40,14 +40,18 @@ const Team: FC = () => {
           </Box>
         </Grid>
 
-        <Grid templateColumns="repeat(12,1fr)" my={8} gap={24}>
-          <Box as={GridItem} colSpan={4} bg="white">
+        <Grid
+          templateColumns={{ base: '100%', lg: 'repeat(12,1fr)' }}
+          my={8}
+          gap={24}
+        >
+          <Box as={GridItem} colSpan={{ base: 8, lg: 4 }} bg="white">
             <Member />
           </Box>
-          <Box as={GridItem} colSpan={4} bg="white">
+          <Box as={GridItem} colSpan={{ base: 8, lg: 4 }} bg="white">
             <Member />
           </Box>
-          <Box as={GridItem} colSpan={4} bg="white">
+          <Box as={GridItem} colSpan={{ base: 8, lg: 4 }} bg="white">
             <Member />
           </Box>
         </Grid>

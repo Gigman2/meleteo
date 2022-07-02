@@ -29,7 +29,7 @@ const Gallery: FC = () => {
               pos="absolute"
               top={0}
               left={0}
-              w="100%"
+              w={{ base: '200%', lg: '100%' }}
               h="100%"
               d="flex"
               justifyContent={'center'}
@@ -37,7 +37,11 @@ const Gallery: FC = () => {
               p={10}
             >
               <Box>
-                <Text color={'white'} fontWeight={700} fontSize={24}>
+                <Text
+                  color={'white'}
+                  fontWeight={700}
+                  fontSize={{ base: 20, lg: 24 }}
+                >
                   Supporting Informal Waste Workers
                 </Text>
                 <Text color={'white'} fontSize={13}>

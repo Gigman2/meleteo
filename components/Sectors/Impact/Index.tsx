@@ -31,7 +31,11 @@ const Impact: FC<
 
   return (
     <Box {...rest}>
-      <Grid templateColumns="repeat(11,1fr)" maxH={124} overflow="hidden">
+      <Grid
+        templateColumns={{ base: '100%', lg: 'repeat(11,1fr)' }}
+        maxH={{ base: 'auto', lg: 124 }}
+        overflow="hidden"
+      >
         <Box
           as={GridItem}
           w="100%"
@@ -53,7 +57,7 @@ const Impact: FC<
               <Box
                 key={item.title}
                 w={`${100 / data.length}%`}
-                px={24}
+                px={{ base: 16, xl: 24 }}
                 float="left"
                 position={'relative'}
                 transition={'all .2s ease-in-out'}
@@ -81,7 +85,7 @@ const Impact: FC<
               w={'100px'}
               justifyContent="space-between"
               mt={8}
-              ml={24}
+              ml={{ base: 16, xl: 24 }}
             >
               <Box
                 w={10}
@@ -121,12 +125,13 @@ const Impact: FC<
           )}
         </Box>
         <Box as={GridItem} colSpan={6}>
-          <Box w="100%" bg="gray.200" overflow={'hidden'}>
+          <Box w="100%" h="100%" bg="gray.200" overflow={'hidden'}>
             <Box
               w={`${100 * data.length}%`}
               d="flex"
               boxSizing="border-box"
               mr={24}
+              h="100%"
             >
               {data.map(item => (
                 <Box
@@ -137,7 +142,7 @@ const Impact: FC<
                   transition={'all .2s ease-in-out'}
                   left={`${left}%`}
                 >
-                  <Image src={item.cover} w="100%" />
+                  <Image src={item.cover} h="100%" w="auto" />
                 </Box>
               ))}
             </Box>

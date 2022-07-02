@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from 'react'
 import React from 'react'
-import { Box, Text, Grid, GridItem, Button } from '@chakra-ui/react'
+import { Box, Text, Grid, GridItem, Button, Flex } from '@chakra-ui/react'
 import Header from '@components/Atom/header'
 
 const Culture: FC = () => {
   return (
-    <Box px={{ base: 4, '2xl': 56 }} mt={24} mb={12}>
+    <Box px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 56 }} mt={24} mb={12}>
       <Header title="Our Culture" />
       <Grid templateColumns="repeat(12,1fr)" mt={12} pb={6}>
         <Box
           as={GridItem}
-          colSpan={6}
+          colSpan={{ base: 12, lg: 6 }}
           bg="white"
           justifyContent={'center'}
           alignItems="center"
@@ -28,17 +28,22 @@ const Culture: FC = () => {
             the components are accorded a proper degree of sustainability.
           </Text>
 
-          <Button
-            fontSize={20}
-            bg="base.400"
-            color="white"
-            rounded={0}
-            px={10}
-            py={6}
-            mt={8}
+          <Flex
+            w={'100%'}
+            justifyContent={{ base: 'center', lg: 'flex-start' }}
           >
-            Read More
-          </Button>
+            <Button
+              fontSize={20}
+              bg="base.400"
+              color="white"
+              rounded={0}
+              px={10}
+              py={6}
+              mt={8}
+            >
+              Read More
+            </Button>
+          </Flex>
         </Box>
       </Grid>
     </Box>

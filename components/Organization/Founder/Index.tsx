@@ -5,7 +5,7 @@ import { Box, Text, Grid, GridItem, Image } from '@chakra-ui/react'
 const Impact: FC = () => {
   return (
     <Box>
-      <Grid templateColumns="repeat(12,1fr)">
+      <Grid templateColumns={{ base: '100%', lg: 'repeat(12,1fr)' }}>
         <Box as={GridItem} colSpan={6}>
           <Box w="100%" h="100%">
             <Image src={'/images/CEO_IMG.png'} />
@@ -15,7 +15,7 @@ const Impact: FC = () => {
           as={GridItem}
           colSpan={6}
           bg="white"
-          p={24}
+          p={{ base: 16, lg: 24 }}
           d="flex"
           justifyContent={'center'}
           alignItems="center"
