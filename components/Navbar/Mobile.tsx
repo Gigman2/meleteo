@@ -13,13 +13,17 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 
+interface ILink {
+  name: string
+  path: string
+  weight?: string
+  width?: number
+  height?: number
+  children?: { name: string; path: string }[]
+}
+
 interface IProps {
-  links: {
-    name: string
-    path: string
-    weight?: string
-    children: { name: string; path: string; weight?: string }[]
-  }[]
+  links: ILink[]
 }
 
 const MobileNavbar: FC<IProps> = ({ links }) => {
