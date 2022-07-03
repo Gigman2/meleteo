@@ -18,15 +18,17 @@ const Impact: FC<
 > = ({ data, ...rest }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [left, setLeft] = useState(0)
+  const WIDTH = 100 / data.length
 
-  const prevSlide = (width: any) => {
+  const prevSlide = () => {
     setActiveIndex(prev => prev - 1)
-    setLeft(width * (activeIndex - 1))
+    setLeft(WIDTH * (activeIndex - 1))
   }
 
-  const nextSlide = (width: number) => {
+  const nextSlide = () => {
     setActiveIndex(prev => prev + 1)
-    setLeft(width * -1 * (activeIndex + 1))
+    setLeft(WIDTH * -1 * (activeIndex + 1))
+    return
   }
 
   return (
@@ -96,9 +98,7 @@ const Impact: FC<
                 alignItems="center"
                 justifyContent={'center'}
                 cursor={activeIndex === 0 ? 'not-allowed' : 'pointer'}
-                onClick={() =>
-                  activeIndex === 0 ? null : prevSlide(100 / data.length)
-                }
+                onClick={() => (activeIndex === 0 ? null : prevSlide())}
               >
                 <Icon as={IoIosArrowBack} boxSize={5} color="white" />
               </Box>
@@ -114,9 +114,7 @@ const Impact: FC<
                 alignItems="center"
                 justifyContent={'center'}
                 onClick={() =>
-                  activeIndex >= data.length - 1
-                    ? null
-                    : nextSlide(100 / data.length)
+                  activeIndex >= data.length - 1 ? null : nextSlide()
                 }
               >
                 <Icon as={IoIosArrowForward} boxSize={5} color="white" />

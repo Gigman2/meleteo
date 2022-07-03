@@ -33,7 +33,7 @@ const Thematic: FC = () => {
             </Text>
             <Text
               color={'base.600'}
-              fontSize={24}
+              fontSize={20}
               lineHeight={1.4}
               fontWeight={450}
             >
@@ -69,7 +69,7 @@ const Thematic: FC = () => {
             </Text>
             <Text
               color={'base.600'}
-              fontSize={24}
+              fontSize={20}
               lineHeight={1.4}
               fontWeight={450}
             >
@@ -104,7 +104,7 @@ const Thematic: FC = () => {
             </Text>
             <Text
               color={'base.600'}
-              fontSize={24}
+              fontSize={20}
               lineHeight={1.4}
               fontWeight={450}
             >

@@ -4,7 +4,7 @@ import { Box, Button, Input, Text } from '@chakra-ui/react'
 
 const NewsLetter: FC = () => {
   return (
-    <Box py={{ base: 12 }}>
+    <Box py={{ base: 12 }} px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 56 }}>
       <Text
         textDecorationLine={'underline'}
         textDecorationThickness={'1px'}
@@ -13,7 +13,7 @@ const NewsLetter: FC = () => {
         textAlign={'center'}
         color={'base.600'}
         fontWeight={700}
-        fontSize={40}
+        fontSize={{ base: 32, lg: 40 }}
         mt={6}
       >
         Subscribe to our newsletter
@@ -21,7 +21,14 @@ const NewsLetter: FC = () => {
       <Text textAlign={'center'} color={'base.600'} mt={10}>
         Sign up to receive GAYO news and updates
       </Text>
-      <Box w={120} h={14} mx="auto" mt={6} d="flex" gap={12}>
+      <Box
+        w={{ base: '100%', md: 120 }}
+        h={14}
+        mx="auto"
+        mt={6}
+        d="flex"
+        gap={12}
+      >
         <Input
           h="100%"
           rounded={0}
