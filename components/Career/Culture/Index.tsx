@@ -27,23 +27,6 @@ const Culture: FC = () => {
             various natural systems on which they depend in such a way that all
             the components are accorded a proper degree of sustainability.
           </Text>
-
-          <Flex
-            w={'100%'}
-            justifyContent={{ base: 'center', lg: 'flex-start' }}
-          >
-            <Button
-              fontSize={20}
-              bg="base.400"
-              color="white"
-              rounded={0}
-              px={10}
-              py={6}
-              mt={8}
-            >
-              Read More
-            </Button>
-          </Flex>
         </Box>
       </Grid>
     </Box>

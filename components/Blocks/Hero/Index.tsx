@@ -7,9 +7,16 @@ interface IProp {
   title: string
   subtext?: string
   titleStyle?: any
+  align?: string
 }
 
-const HeroDesktop: FC<IProp> = ({ cover, title, subtext, titleStyle }) => {
+const HeroDesktop: FC<IProp> = ({
+  cover,
+  title,
+  subtext,
+  titleStyle,
+  align
+}) => {
   return (
     <Flex w="full" bgSize="cover">
       <Box
@@ -31,7 +38,13 @@ const HeroDesktop: FC<IProp> = ({ cover, title, subtext, titleStyle }) => {
         >
           <Box w={{ base: '100%', lg: '60%' }} {...titleStyle}>
             <Text
-              fontSize={titleStyle?.fontSize || { base: 48, md: 52, '2xl': 72 }}
+              fontSize={
+                titleStyle?.fontSize || {
+                  base: 48,
+                  md: 52,
+                  '2xl': 72
+                }
+              }
               color="white"
               fontWeight={700}
               lineHeight={1}
@@ -43,6 +56,8 @@ const HeroDesktop: FC<IProp> = ({ cover, title, subtext, titleStyle }) => {
               fontWeight={400}
               fontSize={{ base: 20, lg: 24 }}
               mt={6}
+              {...(align ? {} : { mx: 'auto' })}
+              w={{ base: '100%', lg: '70%' }}
             >
               {subtext}
             </Text>

@@ -7,22 +7,18 @@ import Culture from '@components/Career/Culture/Index'
 import Team from '@components/Career/Team/Index'
 import Roles from '@components/Career/Roles/Index'
 
-const Home: NextPage = () => {
+const ClimateChange: NextPage = () => {
   return (
     <Layout>
       <Hero
         cover="/images/CAREERS.png"
-        title="Careers"
+        title="Climate Change"
         subtext="Nullam tincidunt neconet neque ultrices suscipit suscipit nibh ut
         ante accIn ac laoreet arcuestibul"
         titleStyle={{ textAlign: 'center', w: '80%', mx: 'auto' }}
       />
-      <Culture />
-      <Team />
-      <Roles />
-      <NewsLetter />
     </Layout>
   )
 }
 
-export default Home
+export default ClimateChange

@@ -77,18 +77,41 @@ const MobileNavbar: FC<IProps> = ({ links }) => {
                   {links.map((m, idx) => (
                     <Box>
                       {m.children ? (
-                        m.children.map(n => (
-                          <>
-                            <NextLink key={idx} href={n.path} passHref>
-                              <Link>
-                                <Flex justify="start" pl={5} py={3}>
-                                  <Text fontWeight={700}>{n.name}</Text>
-                                </Flex>
-                              </Link>
-                            </NextLink>
-                            <Divider />
-                          </>
-                        ))
+                        <Box>
+                          <NextLink key={idx} href={m.path} passHref>
+                            <Link>
+                              <Flex justify="start" pl={5} py={3}>
+                                <Text fontWeight={700}>{m.name}</Text>
+                              </Flex>
+                            </Link>
+                          </NextLink>
+                          <Divider />
+                          <Box>
+                            {m.children.map(n => (
+                              <Box key={idx}>
+                                <NextLink href={m.path + n.path} passHref>
+                                  <Link>
+                                    <Flex
+                                      justify="start"
+                                      pl={5}
+                                      py={3}
+                                      borderWidth={0}
+                                    >
+                                      <Box
+                                        pl={3}
+                                        borderWidth={0}
+                                        borderLeftWidth={4}
+                                        borderLeftColor="base.600"
+                                      ></Box>
+                                      <Text fontWeight={700}>{n.name}</Text>
+                                    </Flex>
+                                  </Link>
+                                </NextLink>
+                                <Divider />
+                              </Box>
+                            ))}
+                          </Box>
+                        </Box>
                       ) : (
                         <>
                           <NextLink key={idx} href={m.path} passHref>

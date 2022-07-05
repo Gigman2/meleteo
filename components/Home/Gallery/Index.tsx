@@ -9,6 +9,15 @@ const Gallery: FC = () => {
         <Box d="flex">
           <Box pos={'relative'}>
             <Image src="./images/IMG F.png" />
+            <Box pos={'absolute'} top={16} left={16}>
+              <Text
+                color={'white'}
+                fontWeight={700}
+                fontSize={{ base: 24, lg: 36 }}
+              >
+                Gallery
+              </Text>
+            </Box>
           </Box>
           <Box>
             <Image src="./images/IMG E.png" />
@@ -18,19 +27,23 @@ const Gallery: FC = () => {
           </Box>
         </Box>
         <Box d="flex" pos={'relative'}>
-          <Box>
+          <Box pos={'relative'}>
             <Image src="./images/IMG A.png" />
-            <Box
-              pos="absolute"
-              top={0}
-              left={0}
-              w={{ base: '200%', lg: '100%' }}
-              h="100%"
-              d="flex"
-              justifyContent={'center'}
-              alignItems="center"
-              p={10}
-            ></Box>
+            <Box pos="absolute" top={0} left={0} w={'100%'} h="100%" p={10}>
+              <Text
+                color={'white'}
+                fontWeight={700}
+                mb={6}
+                fontSize={{ base: 20, lg: 24 }}
+              >
+                Supporting Informal Waste Workers
+              </Text>
+              <Text color={'white'} fontSize={13}>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae
+                doloribus rem officia ab quia recusandae quos praesentium
+                fugiat, quas eos. Quo dolorum voluptatem
+              </Text>
+            </Box>
           </Box>
           <Box>
             <Image src="./images/IMG B.png" />
@@ -67,7 +80,7 @@ const Gallery: FC = () => {
         </Box>
       </Box>
       <Box pos={'absolute'} p={12} top={6}>
-        <Box>
+        <Box d={{ base: 'block', md: 'none' }}>
           <Text
             mb={10}
             color={'white'}

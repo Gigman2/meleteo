@@ -33,24 +33,24 @@ function MyApp({ Component, pageProps }: AppProps) {
     { name: 'Home', path: '/' },
     {
       name: 'Sectors',
-      path: '/sectors/',
+      path: '/sectors',
       width: 56,
       height: 28,
       children: [
-        { name: 'Climate Change', path: '' },
-        { name: 'Circular Economy', path: 'circular-economy' },
-        { name: 'Disaster Risk Reduction', path: 'disaster-risk-reduction' }
+        { name: 'Climate Change', path: '/climate-change' },
+        { name: 'Circular Economy', path: '/circular-economy' },
+        { name: 'Disaster Risk Reduction', path: '/disaster-risk-reduction' }
       ]
     },
     {
       name: 'Organization',
-      path: '/organization/',
+      path: '/organization',
       width: 48,
       height: 28,
       children: [
-        { name: 'About Us', path: '' },
-        { name: 'Media', path: 'media' },
-        { name: 'Careers', path: 'career' }
+        { name: 'About Us', path: '/' },
+        { name: 'Media', path: '/media' },
+        { name: 'Careers', path: '/career' }
       ]
     },
     { name: 'Contact Us', path: '/contact-us' }

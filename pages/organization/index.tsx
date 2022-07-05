@@ -11,6 +11,7 @@ const Home: NextPage = () => {
       <Hero
         cover={'/images/GAYO-about.png'}
         title="About Us"
+        align="left"
         subtext="Our goal is to create a balanced relationship between humans and the various natural systems on which they depend in such a way that all the components are accorded a proper degree of sustainability"
       />
       <Founder />
