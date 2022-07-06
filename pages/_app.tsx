@@ -30,30 +30,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     children?: { name: string; path: string }[]
   }
   const links: Ilinks[] = [
-    { name: 'Home', path: '/' },
-    {
-      name: 'Sectors',
-      path: '/sectors',
-      width: 56,
-      height: 28,
-      children: [
-        { name: 'Climate Change', path: '/climate-change' },
-        { name: 'Circular Economy', path: '/circular-economy' },
-        { name: 'Disaster Risk Reduction', path: '/disaster-risk-reduction' }
-      ]
-    },
-    {
-      name: 'Organization',
-      path: '/organization',
-      width: 48,
-      height: 28,
-      children: [
-        { name: 'About Us', path: '/' },
-        { name: 'Media', path: '/media' },
-        { name: 'Careers', path: '/career' }
-      ]
-    },
-    { name: 'Contact Us', path: '/contact-us' }
+    { name: 'About Us', path: '/' },
+    { name: 'Ebikes', path: '/ebikes' },
+    { name: 'Business', path: '/business' },
+    { name: 'Entrepreneurs Us', path: '/entrepreneur' },
+    { name: 'Impact', path: '/impact' },
+    { name: 'Press', path: '/press' },
+    { name: 'Contact', path: '/contact-us' }
   ]
 
   return (

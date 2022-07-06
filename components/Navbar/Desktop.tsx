@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, Fragment } from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Box, Container, Flex, Link, Image, Text } from '@chakra-ui/react'
+import { Box, Container, Flex, Link, Image } from '@chakra-ui/react'
 import useHover from 'hooks/useHover'
+import LineButton from '@components/Buttons/LineButton'
 
 interface ILink {
   name: string
@@ -12,44 +14,24 @@ interface ILink {
   height?: number
   children?: { name: string; path: string }[]
 }
-const NavbarLink: FC<{ item: ILink }> = ({ item }) => {
+const NavbarLink: FC<{ item: ILink; active: number }> = ({ item, active }) => {
   const [hoverRef, isHovered] = useHover<HTMLDivElement>()
   const router = useRouter()
   return (
     <Box ref={hoverRef} d="flex" alignItems="center" h="100%">
       <NextLink href={item.path} passHref>
         <Link
-          fontWeight={700}
+          fontWeight={400}
           fontSize={{ base: 'sm', xl: 'md' }}
-          _hover={{ color: '#a7cf3e' }}
+          _hover={{ color: 'base.yellow' }}
           _focus={{ outline: 'none' }}
           rel="noreferrer"
           pos="relative"
           {...{
-            color: router.pathname === item.path ? '#a7cf3e' : 'white'
+            color: router.pathname === item.path ? 'base.yellow' : 'white'
           }}
         >
           {item.name}
-          {item?.children && (
-            <Box
-              py={isHovered ? 2 : 0}
-              px={isHovered ? 4 : 0}
-              overflow="hidden"
-              pos="absolute"
-              bg="base.400"
-              mt={4}
-              w={item.width}
-              h={isHovered ? item.height : 0}
-            >
-              {item?.children.map(link => (
-                <NextLink href={item.path + link.path} passHref>
-                  <Link color={'white'} _hover={{ color: 'base.600' }}>
-                    <Text mb={2}>{link.name}</Text>
-                  </Link>
-                </NextLink>
-              ))}
-            </Box>
-          )}
         </Link>
       </NextLink>
     </Box>
@@ -63,7 +45,7 @@ interface IProps {
 const DesktopNavbar: FC<IProps> = ({ links }) => {
   return (
     <Flex
-      h={28}
+      h={32}
       top={0}
       as="nav"
       w="full"
@@ -71,13 +53,18 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
       pos="relative"
       align="center"
       p={0}
-      bgColor={'base.600'}
+      bgColor={'base.black'}
       d={{ base: 'none', xl: 'flex' }}
     >
-      <Container d="flex" minW={'100%'} px={{ base: 4, '2xl': 28 }}>
+      <Container
+        d="flex"
+        minW={'100%'}
+        justifyContent="space-between"
+        px={{ base: 4, '2xl': 28 }}
+      >
         <NextLink href="/" passHref>
           <Link _focus={{ outline: 'none' }} _hover={{ outline: 'none' }}>
-            <Image src="/images/logo.png" h={16} />
+            <Image src="/images/logo.png" h={12} />
           </Link>
         </NextLink>
 
@@ -85,16 +72,17 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
           <Flex align="center" h={'100%'}>
             {links.map((item, idx) => (
               <Fragment key={item.name}>
-                <NavbarLink item={item} />
-                {links.length !== idx + 1 && <Box mx={12} />}
+                <NavbarLink item={item} active={1} />
+                {links.length !== idx + 1 && <Box mx={4} />}
               </Fragment>
             ))}
           </Flex>
         </Box>
+
+        <Box h="100%" w={40}>
+          <LineButton title="Login" />
+        </Box>
       </Container>
-      <Box opacity={'20%'} h="100%" w={40} pos="absolute" right={0}>
-        <Image src={'/images/GAYO-flat.png'} w="100%" />
-      </Box>
     </Flex>
   )
 }

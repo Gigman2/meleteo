@@ -1,66 +1,95 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from 'react'
-import { Box, Flex, Text } from '@chakra-ui/react'
-
-interface IProp {
-  cover: string
-  title: string
-  subtext?: string
-  titleStyle?: any
-  align?: string
-}
-
-const HeroDesktop: FC<IProp> = ({
-  cover,
-  title,
-  subtext,
-  titleStyle,
-  align
-}) => {
+import { Box, Flex, Text, Image, Icon } from '@chakra-ui/react'
+import SolidButton from '@components/Buttons/SolidButton'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+const HeroDesktop: FC = () => {
   return (
-    <Flex w="full" bgSize="cover">
-      <Box
-        h={124}
-        w="100%"
-        bgImage={cover}
-        bgSize="cover"
-        bgPos={'center'}
-        transform="rotateY(180deg)"
-      >
+    <Flex w="full" bgSize="cover" pos="relative">
+      <Box pos="relative">
+        <Box>
+          <Image src="./images/biker.png" />
+        </Box>
         <Box
-          w="100%"
-          h="100%"
-          bgColor={'rgba(47, 122, 56, 0.2)'}
-          transform="rotateY(180deg)"
-          px={{ base: 6, sm: 6, md: 16, lg: 20, '2xl': 28, '4xl': 28 }}
+          w={'100%'}
+          px={{ base: 4, '2xl': 28 }}
+          pos="absolute"
+          top={0}
+          mt={36}
           d="flex"
-          alignItems={'center'}
+          justifyContent={'space-between'}
         >
-          <Box w={{ base: '100%', lg: '60%' }} {...titleStyle}>
+          <Box>
+            <Box transform={'rotate(90deg)'} mt={36} ml={-32}>
+              <Flex justify={'space-between'} color="white">
+                <Text>01/03</Text>
+                <Text>Swift</Text>
+              </Flex>
+              <Box w={72} h={1} bg="whiteAlpha.600"></Box>
+            </Box>
+          </Box>
+          <Box w="40%">
             <Text
-              fontSize={
-                titleStyle?.fontSize || {
-                  base: 48,
-                  md: 52,
-                  '2xl': 72
-                }
-              }
-              color="white"
-              fontWeight={700}
-              lineHeight={1}
-            >
-              {title}
-            </Text>
-            <Text
-              color="white"
+              fontSize={32}
               fontWeight={400}
-              fontSize={{ base: 20, lg: 24 }}
-              mt={6}
-              {...(align ? {} : { mx: 'auto' })}
-              w={{ base: '100%', lg: '70%' }}
+              letterSpacing={4}
+              color="base.yellow"
+              textTransform={'uppercase'}
             >
-              {subtext}
+              Affordable
             </Text>
+            <Text
+              fontSize={80}
+              fontWeight={600}
+              fontFamily={'Rajdhani'}
+              textTransform={'uppercase'}
+              color="white"
+              lineHeight={1.1}
+            >
+              Subscribe <br /> Today
+            </Text>
+            <Text color="white" fontSize={24} mt={6}>
+              Get an E-Bike today, by selecting one of our inclusive payment
+              plans, pay upfront, work and pay or subscribe to use
+            </Text>
+            <Flex mt={12}>
+              <SolidButton
+                title="View More"
+                color="base.yellow"
+                py={6}
+                mr={12}
+              />
+              <SolidButton title="Contact Us" color="white" py={6} />
+            </Flex>
+            <Flex mt={16} justify="flex-end" w="100%">
+              <Flex>
+                <Flex
+                  h={12}
+                  w={12}
+                  rounded={'full'}
+                  cursor="pointer"
+                  borderColor={'white'}
+                  borderWidth={2}
+                  mr={8}
+                  align="center"
+                  justify="center"
+                >
+                  <Icon as={FiChevronLeft} color="white" fontSize={24} />
+                </Flex>
+                <Flex
+                  h={12}
+                  w={12}
+                  rounded={'full'}
+                  cursor="pointer"
+                  borderColor={'white'}
+                  borderWidth={2}
+                  align="center"
+                  justify="center"
+                >
+                  <Icon as={FiChevronRight} fontSize={24} color="white" />
+                </Flex>
+              </Flex>
+            </Flex>
           </Box>
         </Box>
       </Box>

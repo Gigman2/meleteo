@@ -5,76 +5,146 @@ import {
   Grid,
   GridItem,
   Text,
+  Flex,
   Icon,
-  Image
+  Image,
+  Input
 } from '@chakra-ui/react'
-import { BsArrowUp } from 'react-icons/bs'
-
+import { AiOutlineTwitter, AiOutlineInstagram } from 'react-icons/ai'
+import { RiLinkedinFill, RiFacebookFill } from 'react-icons/ri'
+import { MdEmail } from 'react-icons/md'
+import SolidButton from '@components/Buttons/SolidButton'
 const Footer: FC = () => {
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  // const scrollTop = () => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' })
+  // }
   return (
-    <Box w="full" py={{ base: 0, xl: 5 }} bgColor="base.600">
+    <Box w="full" py={{ base: 0, xl: 5 }} bgColor="base.black">
       <Container
-        color="gray.900"
+        color="white"
         textAlign="center"
         fontSize={{ base: 'sm', xl: 'md' }}
         minW={{ base: '4xl', lg: '7xl', '4xl': '8xl' }}
         py={{ base: 4, lg: 0 }}
       >
-        <a href="/">
-          <Box mt={6}>
-            <Image src="/images/logo.png" h={{ base: 16, md: 24 }} mb={6} />
-          </Box>
-        </a>
         <Grid
           mb={{ base: 0, lg: 12 }}
           mt={4}
-          templateColumns="repeat(12,1fr)"
+          templateColumns="repeat(3,1fr)"
           gap={24}
         >
-          <Box as={GridItem} colSpan={{ base: 4, lg: 6 }}>
+          <Box as={GridItem}>
+            <Text color={'base.yellow'} textAlign="left" fontSize={32}>
+              About Cargo Bikes Africa
+            </Text>
             <Text
               textAlign={'left'}
               color="base.400"
-              fontSize={{ base: 12, lg: 14 }}
+              fontSize={{ base: 12, lg: 16 }}
             >
-              GAYO is a registered NGO(registration number 305992) and a company
-              limited, and registered in Ghana (registered number 883234).
+              If you are looking for the most cost efficient way to reach the to
+              shuttle around the city, you're in the right place. Welcom to
+              Cargo Bikes Africa.
             </Text>
-            <Text
-              textAlign={'left'}
-              color="whiteAlpha.700"
-              fontSize={14}
-              mt={8}
-            >
-              {' '}
-              &copy; GAYO. All Rights Reserved
-            </Text>
+            <Flex mt={4}>
+              <Flex
+                w={6}
+                h={6}
+                bg="white"
+                rounded="md"
+                mr={3}
+                alignItems="center"
+                justify={'center'}
+              >
+                <Icon as={AiOutlineTwitter} color="black" />
+              </Flex>
+              <Flex
+                w={6}
+                h={6}
+                bg="white"
+                rounded="md"
+                mr={3}
+                alignItems="center"
+                justify={'center'}
+              >
+                <Icon as={RiLinkedinFill} color="black" />
+              </Flex>
+              <Flex
+                w={6}
+                h={6}
+                bg="white"
+                rounded="md"
+                mr={3}
+                alignItems="center"
+                justify={'center'}
+              >
+                <Icon as={AiOutlineInstagram} color="black" />
+              </Flex>
+              <Flex
+                w={6}
+                h={6}
+                bg="white"
+                rounded="md"
+                mr={3}
+                alignItems="center"
+                justify={'center'}
+              >
+                <Icon as={RiFacebookFill} color="black" />
+              </Flex>
+            </Flex>
           </Box>
-          <Box
-            as={GridItem}
-            colSpan={{ base: 0, lg: 1 }}
-            d={{ base: 'none', lg: 'block' }}
-          ></Box>
-          <Box as={GridItem} colSpan={{ base: 6, lg: 5 }}>
-            <Box d="flex" justifyContent={'space-between'}>
-              <Box w={'55%'}>
-                <Text textAlign={'left'} color="base.400" fontSize={14}>
-                  64 Lumumba Street, Adentan, Accra, Republic of Ghana
+          <Box as={GridItem}>
+            <Text color={'base.yellow'} textAlign="left" fontSize={32}>
+              Office in Accra
+            </Text>
+            <Box>
+              <Text textAlign={'left'} fontSize={20}>
+                <Text as="span" color="base.yellow">
+                  A:{' '}
                 </Text>
-                <Text
-                  textAlign={'left'}
-                  color="whiteAlpha.700"
-                  fontSize={14}
-                  mt={8}
-                >
-                  Tel: +233 (0) 20 7840 1111
+                Impact Hub Accra F 393/4 Otswe Osu Ako-Adjei +(123) 124-567-8901
+              </Text>
+              <Text textAlign={'left'} fontSize={20}>
+                <Text as="span" color="base.yellow">
+                  E:{' '}
                 </Text>
-              </Box>
-              <Box onClick={() => scrollTop()} cursor="pointer">
-                <Icon as={BsArrowUp} color={'base.400'} boxSize={20} />
+                hello@cargo-bikes-africa.com
+              </Text>
+              <Text textAlign={'left'} fontSize={20}>
+                <Text as="span" color="base.yellow">
+                  W:{' '}
+                </Text>
+                www.cargobikesafrica.com
+              </Text>
+            </Box>
+            <Box mt={6} borderBottomWidth={1} borderColor="white">
+              <Flex alignItems={'center'}>
+                <Icon as={MdEmail} color="white" fontSize={24} />
+                <Input
+                  placeholder="Enter your e-mail address"
+                  fontSize={24}
+                  _placeholder={{ color: 'white' }}
+                  border={0}
+                />
+              </Flex>
+            </Box>
+            <Box w={44}>
+              <SolidButton
+                color="base.yellow"
+                title="Submit"
+                w="100%"
+                mt={8}
+                py={6}
+              />
+            </Box>
+          </Box>
+          <Box as={GridItem}>
+            <Text color={'base.yellow'} textAlign="left" fontSize={32}>
+              Our Locations
+            </Text>
+            <Box mt={6}>
+              <Box>
+                <Image src="./images/IMG-H.png" />
               </Box>
             </Box>
           </Box>

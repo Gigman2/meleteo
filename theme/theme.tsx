@@ -16,7 +16,7 @@ export const theme = extendTheme({
   styles: {
     global: () => ({
       'html, body': {
-        fontFamily: '"UberMove", sans-serif',
+        fontFamily: '"Rajdhani", sans-serif',
         fontWeight: 400
       },
       body: {
@@ -30,8 +30,8 @@ export const theme = extendTheme({
   },
   breakpoints,
   fonts: {
-    heading: '"UberMove", sans-serif',
-    body: '"UberMove", sans-serif'
+    heading: '"Rajdhani", sans-serif',
+    body: '"Rajdhani", sans-serif'
   },
   fontSizes: {
     xx: '.55rem',
@@ -41,9 +41,9 @@ export const theme = extendTheme({
   },
   colors: {
     base: {
-      400: '#97c625',
-      500: '#019415',
-      600: '#006837'
+      yellow: '#c9d43c',
+      black: '#000000',
+      green: '#006837'
     }
   },
   space: {

@@ -1,5 +1,5 @@
 {
-  "name": "gayo",
+  "name": "cargo-africa",
   "private": true,
   "scripts": {
     "dev": "next dev",
