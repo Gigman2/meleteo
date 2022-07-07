@@ -14,8 +14,8 @@ const Using: FC = () => {
   return (
     <Box
       px={{ base: 6, sm: 12, md: 16, lg: 20, '2xl': 28 }}
-      pt={32}
-      pb={32}
+      pt={12}
+      pb={12}
       bg="base.yellow"
       pos={'relative'}
     >
