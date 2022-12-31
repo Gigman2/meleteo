@@ -39,7 +39,7 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
               </Box>
               {fields.otherPhone && (
                 <Box mb={8}>
-                  <Text>Additional Phon Number</Text>
+                  <Text>Additional Phone Number</Text>
                   <Text fontWeight={600}>{fields.otherPhone}</Text>
                 </Box>
               )}
