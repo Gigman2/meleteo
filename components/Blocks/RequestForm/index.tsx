@@ -11,8 +11,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
-  Text
+  ModalOverlay
 } from '@chakra-ui/react'
 import SolidButton from '@components/Buttons/SolidButton'
 import ContactInfo from './ContactInfo'

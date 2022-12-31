@@ -27,8 +27,6 @@ const ContactInfo: FC<{
   fields: IFields
   setFields: React.Dispatch<React.SetStateAction<IFields>>
 }> = ({ fields, setFields }) => {
-  console.log('Contact ', fields)
-
   return (
     <Box mt={12}>
       <Text fontWeight={600} fontSize={32}>

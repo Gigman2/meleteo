@@ -3,12 +3,9 @@ import NextLink from 'next/link'
 import { FiMenu, FiX } from 'react-icons/fi'
 import {
   Box,
-  Text,
   Flex,
   Link,
-  Fade,
   Image,
-  Divider,
   IconButton,
   useDisclosure
 } from '@chakra-ui/react'
@@ -24,9 +21,10 @@ interface ILink {
 
 interface IProps {
   links: ILink[]
+  onOpen: () => void
 }
 
-const MobileNavbar: FC<IProps> = ({ links }) => {
+const MobileNavbar: FC<IProps> = ({ links, onOpen }) => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (

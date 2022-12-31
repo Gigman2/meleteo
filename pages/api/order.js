@@ -19,7 +19,6 @@ handler.post(async (req, res) => {
 
   const doc = await req.db.collection('orders').insert(data)
   // eslint-disable-next-line no-undef
-  console.log('Document is ', doc)
   res.json({ message: 'ok' })
 })
 

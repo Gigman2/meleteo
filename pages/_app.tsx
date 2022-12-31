@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 
-import { Box, ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider, useDisclosure } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import '../styles/globals.css'
@@ -11,6 +11,7 @@ import DesktopNavbar from '@components/Navbar/Desktop'
 import MobileNavbar from '@components/Navbar/Mobile'
 
 import { theme } from 'theme/theme'
+import RequestForm from '@components/Blocks/RequestForm'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -26,15 +27,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     height?: number
     children?: { name: string; path: string }[]
   }
-  const links: Ilinks[] = [
-    { name: 'About Us', path: '/' },
-    { name: 'Ebikes', path: '/ebikes' },
-    { name: 'Business', path: '/business' },
-    { name: 'Entrepreneurs Us', path: '/entrepreneur' },
-    { name: 'Impact', path: '/impact' },
-    { name: 'Press', path: '/press' },
-    { name: 'Contact', path: '/contact-us' }
-  ]
+  const links: Ilinks[] = []
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <ChakraProvider theme={theme} resetCSS>
@@ -56,11 +51,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Box bgColor="white" pos="relative" overflow="hidden">
             {showNav && (
               <>
-                <DesktopNavbar links={links} />
-                <MobileNavbar links={links} />
+                <DesktopNavbar links={links} onOpen={onOpen} />
               </>
             )}
-
+            <RequestForm isOpen={isOpen} onClose={onClose} />
             <Component {...pageProps} />
           </Box>
         </motion.div>

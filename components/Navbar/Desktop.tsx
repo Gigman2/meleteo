@@ -15,9 +15,10 @@ interface ILink {
 
 interface IProps {
   links: ILink[]
+  onOpen: () => void
 }
 
-const DesktopNavbar: FC<IProps> = ({ links }) => {
+const DesktopNavbar: FC<IProps> = ({ links, onOpen }) => {
   return (
     <Flex
       h={32}
@@ -29,7 +30,7 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
       align="center"
       p={0}
       bgColor={'transparent'}
-      d={{ base: 'none', xl: 'flex' }}
+      d={{ base: 'none', lg: 'flex' }}
     >
       <Container
         d="flex"
@@ -44,7 +45,7 @@ const DesktopNavbar: FC<IProps> = ({ links }) => {
         </NextLink>
 
         <Box h="100%" w={40}>
-          <LineButton title="Pre-order" />
+          <LineButton title="Pre-order" onClick={() => onOpen()} />
         </Box>
       </Container>
     </Flex>
