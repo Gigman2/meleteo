@@ -7,7 +7,7 @@ interface IProp {
   label: string
   type?: string
   name: string
-  value: Record<string, string | any>
+  value: string
   onChange: (v: any) => void
 }
 
@@ -32,7 +32,7 @@ const FormInput: FC<IProp> = ({ label, type, name, value, onChange }) => {
         _hover={{ borderWidth: 0 }}
         rounded={0}
         color={'gray.600'}
-        value={value[name]}
+        value={value}
         onChange={onChange}
       />
     </Box>

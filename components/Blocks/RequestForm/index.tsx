@@ -5,8 +5,6 @@ import {
   Box,
   Button,
   Flex,
-  Grid,
-  Icon,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -16,18 +14,17 @@ import {
   ModalOverlay,
   Text
 } from '@chakra-ui/react'
-import FormInput from '@components/Atom/formInput'
 import SolidButton from '@components/Buttons/SolidButton'
-import FormRadio from '@components/Atom/formRadio'
-import FormSelect from '@components/Atom/formSelect'
-import { BsPlus } from 'react-icons/bs'
+import ContactInfo from './ContactInfo'
+import OrderInfo from './OrderInfo'
+import SummaryPage from './SummaryPage'
 
 interface IProp {
   isOpen: boolean
   onClose: () => void
 }
 
-interface IFields {
+export interface IFields {
   name: string
   email: string
   phoneNumber: string
@@ -35,194 +32,23 @@ interface IFields {
   churchMember: boolean
   churchBranch?: string
   otherChurch?: string
-  videos: never[]
-}
-
-const churches = [
-  'Abrepo',
-  'Ahinsam',
-  'Alpha',
-  'Asafo',
-  'Asankragua',
-  'Atonsu',
-  'Awoshie',
-  'Brampton',
-  'Buokrom',
-  'Canada',
-  'Cape Caost',
-  'Diaspora',
-  'Dzorwulu',
-  'Ejisu',
-  'Gbawe',
-  'Ho',
-  'Hohoe',
-  'Kaneshie',
-  'Kasoa',
-  'Koforidua',
-  'Kpando',
-  'Lapaz',
-  'Liverpool',
-  'London',
-  'Missisuaga',
-  'Nanakrom',
-  'New Legon',
-  'Obuasi',
-  'Oda',
-  'Oyibi',
-  'Pokuase',
-  'Sunyani',
-  'Swedru',
-  'Takorabi',
-  'Tamale',
-  'Tema',
-  'Tema Comm 7',
-  'Teshie',
-  'Thesaurus',
-  'Virginia',
-  'Wa',
-  'Weija',
-  'Winneba'
-]
-
-const videoOptions = [
-  { id: 1, name: 'The Holy Spirit' },
-  { id: 2, name: "Faith And The Believer's Authority" },
-  { id: 3, name: 'The Word Of God' },
-  { id: 4, name: 'The New Life' },
-  { id: 5, name: 'Relationship, Sex and Marriage' },
-  { id: 6, name: 'Prosperity Series' },
-  { id: 7, name: 'How To serve The Lord' },
-  { id: 8, name: 'Them That Love His Appearing' },
-  { id: 9, name: 'Growing Spiritually' },
-  { id: 10, name: 'Pastoral Care' },
-  { id: 11, name: "Shepherds' Camps and Conferences" },
-  { id: 12, name: 'Pastors Camps and Conferences' }
-]
-
-const ContactInfo: FC<{
-  fields: IFields
-  setFields: React.Dispatch<React.SetStateAction<IFields>>
-}> = ({ fields, setFields }) => {
-  return (
-    <Box mt={12}>
-      <Text fontWeight={600} fontSize={32}>
-        Contact Info
-      </Text>
-
-      <FormInput
-        label={'Your name'}
-        name={'name'}
-        value={fields}
-        onChange={v => setFields({ ...fields, name: v.currentTarget.val })}
-      />
-
-      <FormInput
-        label={'Your Email'}
-        type={'email'}
-        name={'email'}
-        value={fields}
-        onChange={v => setFields({ ...fields, email: v.currentTarget.val })}
-      />
-
-      <FormInput
-        label={'Phone number'}
-        name={'phoneNumber'}
-        value={fields}
-        onChange={v =>
-          setFields({ ...fields, phoneNumber: v.currentTarget.val })
-        }
-      />
-
-      <FormInput
-        label={'Alternate Phone number'}
-        name={'otherPhone'}
-        value={fields}
-        onChange={v =>
-          setFields({ ...fields, otherPhone: v.currentTarget.val })
-        }
-      />
-    </Box>
-  )
-}
-
-const OrderInfo: FC<{
-  fields: IFields
-  setFields: React.Dispatch<React.SetStateAction<IFields>>
-}> = ({ fields, setFields }) => {
-  return (
-    <Box mt={12}>
-      <Text fontWeight={600} fontSize={32}>
-        Order Info
-      </Text>
-
-      <FormRadio
-        label={'Are you a member of Love Economy Church ?'}
-        value={fields.churchMember || false}
-        onChange={() =>
-          setFields({ ...fields, churchMember: !fields.churchMember })
-        }
-      />
-
-      {fields.churchMember ? (
-        <FormSelect
-          label="Which Love Economy Church Branch are you in"
-          options={churches}
-          value={fields.churchBranch || ''}
-          placeholder="Select your branch from the list"
-          onChange={e => setFields({ ...fields, churchBranch: e })}
-        />
-      ) : (
-        <FormInput
-          label={'The Name of your Church'}
-          name={'otherChurch'}
-          value={fields}
-          onChange={v =>
-            setFields({ ...fields, otherChurch: v.otherChurch.val })
-          }
-        />
-      )}
-
-      <Box
-        bg="whiteAlpha.800"
-        rounded="lg"
-        borderWidth={2}
-        borderColor="base.blue"
-        width={{ base: 'full', lg: '100%' }}
-        color="base.blue"
-        mb={8}
-        px={4}
-      >
-        <Text fontWeight={600} py={3}>
-          Which Video Drive(s) would you like to order?
-        </Text>
-
-        <Grid templateColumns="repeat(2, 1fr)" my={3}>
-          {videoOptions.map(item => (
-            <Box key={item.name} my={4}>
-              <Flex align="center">
-                <Flex cursor={'pointer'} mr={2}>
-                  <Icon as={BsPlus} boxSize={7} />
-                </Flex>
-                <Text>{item.name}</Text>
-              </Flex>
-            </Box>
-          ))}
-        </Grid>
-      </Box>
-    </Box>
-  )
+  videos: string[]
 }
 
 const getPageInfo = (
   step: number,
   fields: IFields,
-  setFields: React.Dispatch<React.SetStateAction<IFields>>
+  setFields: React.Dispatch<React.SetStateAction<IFields>>,
+  orderPlaced: boolean
 ) => {
   switch (step) {
     case 1:
       return <ContactInfo fields={fields} setFields={setFields} />
     case 2:
       return <OrderInfo fields={fields} setFields={setFields} />
+    case 3:
+    case 4:
+      return <SummaryPage fields={fields} orderPlaced={orderPlaced} />
 
     default:
       break
@@ -231,6 +57,8 @@ const getPageInfo = (
 
 const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1)
+  const [loading, setLoading] = useState(false)
+  const [orderPlaced, setOrderPlaced] = useState(false)
 
   const [fields, setFields] = useState<IFields>({
     name: '',
@@ -247,14 +75,43 @@ const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
       method: 'post',
       body: JSON.stringify(fields)
     })
-
-    console.log(res)
+    return res
   }
 
-  const handleSubmit = () => {
-    // validateAll();
-    saveOrders()
-    // reset();
+  const reset = () => {
+    const resetData = {
+      name: '',
+      email: '',
+      phoneNumber: '',
+      otherPhone: '',
+      churchMember: true,
+      churchBranch: '',
+      videos: []
+    }
+    setFields(resetData)
+    setLoading(false)
+    setOrderPlaced(false)
+    setStep(1)
+    onClose()
+  }
+
+  const handleSubmit = async () => {
+    try {
+      setLoading(true)
+      // validateAll();
+      const res = await saveOrders()
+      if (res) {
+        setOrderPlaced(true)
+        setStep(4)
+        setTimeout(() => {
+          reset()
+        }, 5000)
+      }
+    } catch (error) {
+      console.log('An Error Occured')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -339,18 +196,23 @@ const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
             </Box>
           </Flex>
 
-          {getPageInfo(step, fields, setFields)}
+          {getPageInfo(step, fields, setFields, orderPlaced)}
         </ModalBody>
 
         <ModalFooter justifyContent={'space-between'}>
           <SolidButton
+            display={step === 4 ? 'none' : 'flex'}
             color="base.blue"
             title={step === 3 ? 'Submit' : 'Next'}
             onClick={() =>
               step < 3 ? setStep(prev => prev + 1) : handleSubmit()
             }
+            isDisabled={loading}
+            isLoading={loading}
           />
           <Button
+            display={step === 4 ? 'none' : 'flex'}
+            isDisabled={loading}
             rounded={'xl'}
             color="black"
             bg="transparent"
