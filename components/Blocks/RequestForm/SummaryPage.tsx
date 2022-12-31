@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react'
 import { FC } from 'react'
 import { IFields } from '.'
 
@@ -6,6 +6,10 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
   fields,
   orderPlaced
 }) => {
+  const priceTwo = [
+    "Shepherds' Camps and Conferences",
+    'Pastors Camps and Conferences'
+  ]
   return (
     <Box mt={12}>
       <Text fontWeight={600} fontSize={32}>
@@ -52,22 +56,62 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
                 </Text>
               </Box>
             </Grid>
-            <Flex flexWrap={'wrap'}>
-              {fields.videos.map(item => (
-                <Flex
-                  mb={4}
-                  key={item}
-                  rounded={'full'}
-                  bg="base.blue"
-                  color={'white'}
-                  py={2}
-                  px={6}
-                  mr={4}
-                  maxW={72}
+
+            <Grid templateColumns="repeat(1, 1fr)" my={3}>
+              <Box>
+                <Grid
+                  templateColumns="repeat(8, 1fr)"
+                  color="base.blue"
+                  fontWeight={600}
                 >
-                  {item}
-                </Flex>
-              ))}
+                  <Box as={GridItem} colSpan={4}>
+                    Name
+                  </Box>
+                  <Box as={GridItem} colSpan={2}>
+                    Quantity
+                  </Box>
+                  <Box as={GridItem} colSpan={2}>
+                    Price (Ghc)
+                  </Box>
+                </Grid>
+              </Box>
+              {Object.keys(fields.videos)
+                .filter(item => fields.videos[item] > 0)
+                .map(item => (
+                  <Grid
+                    templateColumns="repeat(8, 1fr)"
+                    color="base.blue"
+                    my={1}
+                  >
+                    <Box as={GridItem} colSpan={4}>
+                      {item}
+                    </Box>
+                    <Box as={GridItem} colSpan={2}>
+                      {fields.videos[item]}
+                    </Box>
+                    <Box as={GridItem} colSpan={2}>
+                      {fields.videos[item] *
+                        (priceTwo.includes(item) ? 70 : 60)}
+                    </Box>
+                  </Grid>
+                ))}
+            </Grid>
+            <Text color="base.blue" fontWeight={700} fontSize={32} mt={12}>
+              Total{' '}
+              {Object.keys(fields.videos).reduce(
+                (a, b) =>
+                  a + fields.videos[b] * (priceTwo.includes(b) ? 70 : 60),
+                0
+              )}
+            </Text>
+            <Flex color={'base.blue'}>
+              <Text>Make the payment to mobile money number </Text>
+              <Text fontWeight={700}>&nbsp;0209098331&nbsp;</Text>
+              <Text>name</Text>
+              <Text fontWeight={700}>&nbsp;Gbekor Princess&nbsp;</Text>
+              <Text>use</Text>
+              <Text fontWeight={700}>&nbsp;Meletao&nbsp;</Text>
+              <Text>as reference</Text>
             </Flex>
           </>
         ) : (
@@ -79,7 +123,6 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
             justify={'center'}
           >
             <Text fontWeight={700} fontSize={32}>
-              {' '}
               Your Pre - order has been recorded
             </Text>
           </Flex>

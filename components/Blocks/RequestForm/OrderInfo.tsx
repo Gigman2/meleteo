@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import React from 'react'
 import { Box, Grid, Text } from '@chakra-ui/react'
 import FormInput from '@components/Atom/formInput'
@@ -88,8 +88,10 @@ const OrderInfo: FC<{
     'churchMember'
   ]
 
+  const [messages, setMessages] = useState<Record<string, number>>({})
+
   useEffect(() => {
-    if (fields.churchBranch) {
+    if (fields.churchMember) {
       required.push('churchBranch')
     } else {
       required.push('otherChurch')
@@ -97,6 +99,18 @@ const OrderInfo: FC<{
 
     validate(required, errors, fields, setErrors)
   }, [fields])
+
+  useEffect(() => {
+    const videos: Record<string, number> = {}
+    if (Object.keys(fields.videos).length === 0) {
+      if (videoOptions.length) {
+        videoOptions.map(item => {
+          videos[item.name] = 0
+        })
+      }
+      setFields(prev => ({ ...prev, videos }))
+    }
+  }, [])
 
   return (
     <Box mt={12}>
@@ -155,13 +169,17 @@ const OrderInfo: FC<{
         </Text>
 
         <Grid templateColumns="repeat(2, 1fr)" my={3}>
-          {videoOptions.map(item => (
-            <MessageSelector
-              item={item}
-              fields={fields}
-              setFields={setFields}
-            />
-          ))}
+          {Object.keys(fields.videos).length
+            ? Object.keys(fields.videos).map(item => (
+                <MessageSelector
+                  key={item}
+                  name={item}
+                  value={fields.videos[item]}
+                  fields={fields}
+                  setFields={setFields}
+                />
+              ))
+            : null}
         </Grid>
       </Box>
     </Box>

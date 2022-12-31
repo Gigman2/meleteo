@@ -44,7 +44,7 @@ export interface IFields {
   churchMember: boolean
   churchBranch?: string
   otherChurch?: string
-  videos: string[]
+  videos: Record<string, number>
 }
 
 const getPageInfo = (
@@ -109,7 +109,7 @@ const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
     otherPhone: '',
     churchMember: true,
     churchBranch: '',
-    videos: []
+    videos: {}
   })
 
   const saveOrders = async () => {
@@ -128,7 +128,7 @@ const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
       otherPhone: '',
       churchMember: true,
       churchBranch: '',
-      videos: []
+      videos: {}
     }
     setFields(resetData)
     setLoading(false)
@@ -170,7 +170,7 @@ const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
       keys = ['name', 'email', 'phoneNumber']
     } else if (step === 2) {
       keys = ['churchMember']
-      if (fields.churchBranch) {
+      if (fields.churchMember) {
         keys.push('churchBranch')
       } else {
         keys.push('otherChurch')

@@ -1,36 +1,64 @@
-import { Box, Flex, Icon, Text } from '@chakra-ui/react'
-import { FC } from 'react'
+import { Box, Flex, Icon, Input, Text } from '@chakra-ui/react'
+import { FC, useEffect, useState } from 'react'
 import { BiMinus } from 'react-icons/bi'
 import { BsPlus } from 'react-icons/bs'
 import { IFields } from '.'
 
 const MessageSelector: FC<{
-  item: { id: number; name: string }
+  name: string
+  value: number
   fields: IFields
   setFields: React.Dispatch<React.SetStateAction<IFields>>
-}> = ({ item, fields, setFields }) => {
-  const videos = [...fields.videos]
-  const idx = videos.findIndex(i => i === item.name)
-  const exists = idx > -1 ? true : false
-  return (
-    <Box key={item.name} my={4}>
-      <Flex align="center">
-        <Flex
-          cursor={'pointer'}
-          mr={2}
-          onClick={() => {
-            if (exists) {
-              videos.splice(idx, 1)
-            } else {
-              videos.push(item.name)
-            }
+}> = ({ name, value, fields, setFields }) => {
+  const handleValueUpdate = (unit: string) => {
+    let val = 0
+    const videos: Record<string, number> = { ...fields.videos }
+    if (!videos[name]) {
+      videos[name] = val + (unit === 'add' ? 1 : 0)
+    } else {
+      val = videos[name]
+      if (unit === 'add') {
+        val = val + 1
+      } else {
+        if (val > 0) {
+          val = val - 1
+        }
+      }
 
-            setFields(prev => ({ ...prev, videos }))
-          }}
-        >
-          <Icon as={exists ? BiMinus : BsPlus} boxSize={7} />
+      videos[name] = val
+    }
+
+    setFields(prev => ({ ...prev, videos }))
+  }
+
+  return (
+    <Box key={name} my={4}>
+      <Flex align="center" justify={'space-between'}>
+        <Text>{name}</Text>
+        <Flex mr={12} align="center">
+          <Flex
+            cursor={'pointer'}
+            mr={2}
+            onClick={() => handleValueUpdate('minus')}
+          >
+            <Icon as={BiMinus} boxSize={7} />
+          </Flex>
+          <Box w={12} h={8} mx={2} borderWidth={1} borderColor="base.blue">
+            <Input
+              outline="none"
+              borderWidth={0}
+              _hover={{ outline: 'none' }}
+              _active={{ outline: 'none' }}
+              w="100%"
+              h="100%"
+              rounded={0}
+              value={value}
+            />
+          </Box>
+          <Flex cursor={'pointer'} onClick={() => handleValueUpdate('add')}>
+            <Icon as={BsPlus} boxSize={7} />
+          </Flex>
         </Flex>
-        <Text>{item.name}</Text>
       </Flex>
     </Box>
   )
