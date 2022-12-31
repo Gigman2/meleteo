@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import React from 'react'
 import { Box, Text } from '@chakra-ui/react'
 import FormInput from '@components/Atom/formInput'
-import { IFields } from '.'
+import { IErrors, IFields } from '.'
+import { validate } from './utils'
 
 export const handleChange = (
   val: string,
@@ -26,7 +27,20 @@ export const handleChange = (
 const ContactInfo: FC<{
   fields: IFields
   setFields: React.Dispatch<React.SetStateAction<IFields>>
-}> = ({ fields, setFields }) => {
+  showError: boolean
+  errors: IErrors
+  setErrors: React.Dispatch<React.SetStateAction<IErrors>>
+}> = ({ fields, setFields, showError, setErrors, errors }) => {
+  const required: ('name' | 'email' | 'phoneNumber')[] = [
+    'name',
+    'email',
+    'phoneNumber'
+  ]
+
+  useEffect(() => {
+    validate(required, errors, fields, setErrors)
+  }, [fields])
+
   return (
     <Box mt={12}>
       <Text fontWeight={600} fontSize={32}>
@@ -37,6 +51,8 @@ const ContactInfo: FC<{
         label={'Your name'}
         name={'name'}
         value={fields.name}
+        isRequired={true}
+        error={showError ? errors['name'] : null}
         onChange={v =>
           handleChange(v?.currentTarget?.value, 'name', fields, setFields)
         }
@@ -47,6 +63,8 @@ const ContactInfo: FC<{
         type={'email'}
         name={'email'}
         value={fields.email}
+        isRequired={true}
+        error={showError ? errors['email'] : null}
         onChange={v =>
           handleChange(v?.currentTarget?.value, 'email', fields, setFields)
         }
@@ -56,6 +74,8 @@ const ContactInfo: FC<{
         label={'Phone number'}
         name={'phoneNumber'}
         value={fields.phoneNumber}
+        isRequired={true}
+        error={showError ? errors['phoneNumber'] : null}
         onChange={v =>
           handleChange(
             v?.currentTarget?.value,

@@ -52,7 +52,8 @@ const HeroDesktop: FC = () => {
               Bishop Oti Messages
             </Text>
             <Text color="white" fontSize={24} mt={6}>
-              Request for your on the go messages
+              A Collection of Specially Selected Video Messages by Bishop Isaac
+              Oti-Boateng That Will Transform Your Life and Ministry
             </Text>
             <Flex mt={12}>
               <SolidButton

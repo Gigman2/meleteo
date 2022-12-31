@@ -1,12 +1,13 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import React from 'react'
 import { Box, Grid, Text } from '@chakra-ui/react'
 import FormInput from '@components/Atom/formInput'
-import { IFields } from '.'
+import { IErrors, IFields } from '.'
 import FormRadio from '@components/Atom/formRadio'
 import FormSelect from '@components/Atom/formSelect'
 import MessageSelector from './MessageSelector'
 import { handleChange } from './ContactInfo'
+import { validate } from './utils'
 
 const churches = [
   'Abrepo',
@@ -72,13 +73,31 @@ const videoOptions = [
 const OrderInfo: FC<{
   fields: IFields
   setFields: React.Dispatch<React.SetStateAction<IFields>>
-}> = ({ fields, setFields }) => {
+  showError: boolean
+  setErrors: React.Dispatch<React.SetStateAction<IErrors>>
+  errors: IErrors
+}> = ({ fields, setFields, showError, errors, setErrors }) => {
   const handleRadioChange = (val: boolean, key: 'churchMember') => {
     const currentValues: IFields = { ...fields }
     currentValues[key] = val
 
     setFields(currentValues)
   }
+
+  const required: ('churchMember' | 'churchBranch' | 'otherChurch')[] = [
+    'churchMember'
+  ]
+
+  useEffect(() => {
+    if (fields.churchBranch) {
+      required.push('churchBranch')
+    } else {
+      required.push('otherChurch')
+    }
+
+    validate(required, errors, fields, setErrors)
+  }, [fields])
+
   return (
     <Box mt={12}>
       <Text fontWeight={600} fontSize={32}>
@@ -89,6 +108,8 @@ const OrderInfo: FC<{
         label={'Are you a member of Love Economy Church ?'}
         value={fields.churchMember || false}
         onChange={() => handleRadioChange(!fields.churchMember, 'churchMember')}
+        isRequired={true}
+        error={showError ? errors['churchMember'] : null}
       />
 
       {fields.churchMember ? (
@@ -98,12 +119,16 @@ const OrderInfo: FC<{
           value={fields.churchBranch || ''}
           placeholder="Select your branch from the list"
           onChange={e => handleChange(e, 'churchBranch', fields, setFields)}
+          isRequired={true}
+          error={showError ? errors['churchBranch'] : null}
         />
       ) : (
         <FormInput
           label={'The Name of your Church'}
           name={'otherChurch'}
           value={fields.otherChurch || ''}
+          isRequired={true}
+          error={showError ? errors['otherChurch'] : null}
           onChange={v =>
             handleChange(
               v?.currentTarget?.value,
@@ -126,7 +151,7 @@ const OrderInfo: FC<{
         px={4}
       >
         <Text fontWeight={600} py={3}>
-          Which Video Drive(s) would you like to order?
+          Which Video Message(s) would you like to order?
         </Text>
 
         <Grid templateColumns="repeat(2, 1fr)" my={3}>

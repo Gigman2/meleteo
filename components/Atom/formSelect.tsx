@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from 'react'
 import React from 'react'
-import { Box, Flex, FormLabel, position, Text } from '@chakra-ui/react'
+import { Box, Flex, FormLabel, Text } from '@chakra-ui/react'
 import { Listbox } from '@headlessui/react'
 
 interface IProp {
@@ -10,6 +10,8 @@ interface IProp {
   value: string
   placeholder: string
   onChange: (e: string) => void
+  error?: string | null
+  isRequired?: boolean
 }
 
 const FormSelect: FC<IProp> = ({
@@ -17,18 +19,25 @@ const FormSelect: FC<IProp> = ({
   options,
   value,
   onChange,
-  placeholder
+  placeholder,
+  error
 }) => {
   return (
     <Box
       bg="whiteAlpha.800"
       rounded="lg"
       borderWidth={2}
-      borderColor="base.blue"
+      borderColor={error ? 'red.400' : 'base.blue'}
       width={{ base: 'full', lg: '50%' }}
       mb={8}
     >
-      <FormLabel color="base.blue" fontWeight={600} px={4} py={2} margin={0}>
+      <FormLabel
+        fontWeight={600}
+        px={4}
+        py={2}
+        margin={0}
+        color={error ? 'red.400' : 'base.blue'}
+      >
         {label}
       </FormLabel>
       <Flex style={{ position: 'relative' }}>
