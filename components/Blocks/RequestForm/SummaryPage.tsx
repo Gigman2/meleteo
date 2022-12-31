@@ -21,7 +21,10 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
       >
         {!orderPlaced ? (
           <>
-            <Grid templateColumns="repeat(2, 1fr)" color="base.blue">
+            <Grid
+              templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(2, 1fr)' }}
+              color="base.blue"
+            >
               <Box mb={8}>
                 <Text>Your Name</Text>
                 <Text fontWeight={600}>{fields.name}</Text>

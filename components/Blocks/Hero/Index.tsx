@@ -41,16 +41,7 @@ const HeroDesktop: FC = () => {
           justifyContent={'space-between'}
         >
           <Box w={{ base: '100%', lg: '40%' }}>
-            <Text
-              fontSize={80}
-              fontWeight={600}
-              fontFamily={'Rajdhani'}
-              textTransform={'uppercase'}
-              color="white"
-              lineHeight={1.1}
-            >
-              Bishop Oti Messages
-            </Text>
+            <Image src={'./images/meletao.png'} />
             <Text color="white" fontSize={24} mt={6}>
               A Collection of Specially Selected Video Messages by Bishop Isaac
               Oti-Boateng That Will Transform Your Life and Ministry
