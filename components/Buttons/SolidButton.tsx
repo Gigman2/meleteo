@@ -11,13 +11,16 @@ interface IProp {
 
 const SolidButton: FC<IProp> = ({ title, color, ...rest }) => {
   return (
-    <Button bg={color} rounded="xl" px={12} py={5} {...rest}>
-      <Text
-        textTransform={'uppercase'}
-        color="base.black"
-        fontWeight={600}
-        letterSpacing={1}
-      >
+    <Button
+      bg={color}
+      rounded="xl"
+      px={12}
+      py={5}
+      {...rest}
+      color="white"
+      _hover={{ color: 'base.black', bg: 'white' }}
+    >
+      <Text textTransform={'uppercase'} fontWeight={600} letterSpacing={1}>
         {title}
       </Text>
     </Button>

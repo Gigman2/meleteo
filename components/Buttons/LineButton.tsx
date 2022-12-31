@@ -15,13 +15,10 @@ const LineButton: FC<IProp> = ({ title }) => {
       rounded="xl"
       px={12}
       py={5}
+      color="white"
+      _hover={{ color: 'base.blue', bg: 'whiteAlpha.800' }}
     >
-      <Text
-        textTransform={'uppercase'}
-        color="base.yellow"
-        fontWeight={400}
-        letterSpacing={1}
-      >
+      <Text textTransform={'uppercase'} fontWeight={400} letterSpacing={1}>
         {title}
       </Text>
     </Button>

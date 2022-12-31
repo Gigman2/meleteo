@@ -41,7 +41,7 @@ export const theme = extendTheme({
   },
   colors: {
     base: {
-      yellow: '#c9d43c',
+      blue: '#1d31b3',
       black: '#000000',
       green: '#006837'
     }

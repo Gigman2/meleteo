@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import '../styles/globals.css'
 import '../public/fonts/fonts.css'
 
-import Footer from '@components/Footer'
 import DesktopNavbar from '@components/Navbar/Desktop'
 import MobileNavbar from '@components/Navbar/Mobile'
 
@@ -17,10 +16,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   const noNavPages: string[] = []
-  const noFooterPages: string[] = ['/404']
 
   const showNav = !noNavPages.includes(router.pathname)
-  const showFooter = !noFooterPages.includes(router.pathname)
 
   interface Ilinks {
     name: string
@@ -65,8 +62,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             )}
 
             <Component {...pageProps} />
-
-            {showFooter && <Footer />}
           </Box>
         </motion.div>
       </AnimatePresence>

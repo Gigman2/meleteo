@@ -27,6 +27,6 @@
       ],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/order.js", "middleware/database.js"],
   "exclude": ["node_modules"]
 }
