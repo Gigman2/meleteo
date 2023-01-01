@@ -25,7 +25,7 @@ const HeroDesktop: FC = () => {
       <RequestForm isOpen={isOpen} onClose={onClose} />
       <Box pos="relative" w="100%" h="100%">
         <Box
-          bgImage={'images/cover-2.jpg'}
+          bgImage={'images/cover-3.jpg'}
           backgroundSize={'cover'}
           backgroundPosition={{ base: 'center', lg: 'center' }}
           w="100%"

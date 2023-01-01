@@ -71,7 +71,7 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
                     Quantity
                   </Box>
                   <Box as={GridItem} colSpan={2}>
-                    Price (Ghc)
+                    Price (GH¢)
                   </Box>
                 </Grid>
               </Box>
@@ -97,7 +97,7 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
                 ))}
             </Grid>
             <Text color="base.blue" fontWeight={700} fontSize={32} mt={12}>
-              Total{' '}
+              Total GH¢
               {Object.keys(fields.videos).reduce(
                 (a, b) =>
                   a + fields.videos[b] * (priceTwo.includes(b) ? 70 : 60),
@@ -113,6 +113,9 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
               <Text fontWeight={700}>&nbsp;Meletao&nbsp;</Text>
               <Text>as reference</Text>
             </Flex>
+            <Flex color={'base.blue'}>
+              <Text fontWeight={600}>This will complete your pre-order</Text>
+            </Flex>
           </>
         ) : (
           <Flex
@@ -124,6 +127,9 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
           >
             <Text fontWeight={700} fontSize={32}>
               Your Pre - order has been recorded
+            </Text>
+            <Text fontWeight={700} fontSize={32}>
+              Kindly make payment to complete your order
             </Text>
           </Flex>
         )}
