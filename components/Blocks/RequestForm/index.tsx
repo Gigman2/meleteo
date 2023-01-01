@@ -113,7 +113,7 @@ const RequestForm: FC<IProp> = ({ isOpen, onClose }) => {
   })
 
   const saveOrders = async () => {
-    const res = await fetch('http://localhost:3000/api/order', {
+    const res = await fetch('https://meletao.loveeconomychurch.org/api/order', {
       method: 'post',
       body: JSON.stringify(fields)
     })

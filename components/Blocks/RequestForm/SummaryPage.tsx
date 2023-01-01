@@ -104,11 +104,13 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
                 0
               )}
             </Text>
-            <Flex color={'base.blue'}>
+            <Flex color={'base.blue'} wrap="wrap">
               <Text>Make the payment to mobile money number </Text>
               <Text fontWeight={700}>&nbsp;0209098331&nbsp;</Text>
               <Text>name</Text>
-              <Text fontWeight={700}>&nbsp;Gbekor Princess&nbsp;</Text>
+              <Text fontWeight={700} minW={24}>
+                &nbsp;Gbekor Princess&nbsp;
+              </Text>
               <Text>use</Text>
               <Text fontWeight={700}>&nbsp;Meletao&nbsp;</Text>
               <Text>as reference</Text>
