@@ -126,6 +126,7 @@ const SummaryPage: FC<{ fields: IFields; orderPlaced: boolean }> = ({
             align={'center'}
             color="base.blue"
             justify={'center'}
+            direction="column"
           >
             <Text fontWeight={700} fontSize={32}>
               Your Pre - order has been recorded
