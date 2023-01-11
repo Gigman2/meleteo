@@ -15,9 +15,10 @@ handler.use(database)
 
 handler.post(async (req, res) => {
   let data = req.body
+  data.createAt = new Date()
   data = JSON.parse(data)
 
-  const doc = await req.db.collection('orders').insert(data)
+  await req.db.collection('orders').insert(data)
   // eslint-disable-next-line no-undef
   res.json({ message: 'ok' })
 })
