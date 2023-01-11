@@ -6,17 +6,10 @@ const handler = nextConnect()
 
 handler.use(database)
 
-// handler.get(async (req, res) => {
-//   const doc = await req.db.collection('orders').findOne()
-//   // eslint-disable-next-line no-undef
-//   console.log('Document is ', doc)
-//   res.json(doc)
-// })
-
 handler.post(async (req, res) => {
   let data = req.body
   data = JSON.parse(data)
-  data.createdAt = new Date()
+  data.createdAt = new Date().toLocaleString('en-GB', { timeZone: 'UTC' })
 
   await req.db.collection('orders').insert(data)
   // eslint-disable-next-line no-undef
