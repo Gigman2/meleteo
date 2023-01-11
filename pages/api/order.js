@@ -16,7 +16,7 @@ handler.use(database)
 handler.post(async (req, res) => {
   let data = req.body
   data = JSON.parse(data)
-  data.createAt = new Date().toString()
+  data.createdAt = new Date()
 
   await req.db.collection('orders').insert(data)
   // eslint-disable-next-line no-undef
