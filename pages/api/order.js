@@ -15,7 +15,7 @@ handler.use(database)
 
 handler.post(async (req, res) => {
   let data = req.body
-  data.createAt = new Date()
+  data.createAt = new Date().toString()
   data = JSON.parse(data)
 
   await req.db.collection('orders').insert(data)
