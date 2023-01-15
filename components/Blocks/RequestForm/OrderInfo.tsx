@@ -42,6 +42,7 @@ const churches = [
   'Oyibi',
   'Pokuase',
   'Sunyani',
+  'Santasi',
   'Swedru',
   'Takorabi',
   'Tamale',
